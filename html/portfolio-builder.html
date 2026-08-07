@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio CMS</title>
+
+    <!--------Remix Icons-------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" />
+
+    <!--------Google Fonts-------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!------CSS file-------->
+    <link rel="stylesheet" href="../css/portfolio-builder.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-----------------------------------------Side bar---------------------------------------------->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="ri-code-s-slash-line"></i>
+                <div>
+                    <h2>Developer</h2>
+                    <p>Portfolio CMS</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <h4>Portfolio builder</h4>
+
+                <button class="nav-item active">
+                    <i class="ri-home-4-line"></i>
+                    About Me
+                </button>
+
+                <button class="nav-item">
+                    <i class="ri-folder-2-line"></i>
+                    Projects
+                </button>
+
+                <button class="nav-item">
+                    <i class="ri-star-line"></i>
+                    Skills
+                </button>
+
+                <button class="nav-item">
+                    <i class="ri-briefcase-line"></i>
+                    Experience
+                </button>
+
+                <button class="nav-item">
+                    <i class="ri-file-text-line"></i>
+                    Resume
+                </button>
+
+                <button class="nav-item">
+                    <i class="ri-phone-line"></i>
+                    Contact Me
+                </button>
+            </nav>
+
+            <div class="preview-section">
+                <button class="nav-item">
+                    <i class="ri-eye-line"></i>
+                    Preview Portfolio
+                </button>
+            </div>
+
+            <div class="appearance-section">
+                <h4>Appearance</h4>
+                <button class="nav-item">
+                    <i class="ri-moon-line"></i>
+                    Theme Switcher
+                </button>
+            </div>
+
+            <div class="danger-section">
+                <h4>Danger Zone</h4>
+                <button class="nav-item reset-btn">
+                    <i class="ri-delete-bin-6-line"></i>
+                    Reset Portfolio
+                </button>
+            </div>
+
+            <div class="help-card">
+                <h3>Need Help?</h3>
+                <p>Build your amazing portfolio step by step.</p>
+                <button><i class="ri-google-play-fill"></i>Watch Guide</button>
+            </div>
+
+        </aside>
+
+
+        <main class="main-content">
+
+            <!---------------------------------------About Us Section---------------------------------------->
+            <section id="about-section">
+
+                <!---Page Header--->
+                <div class="about-header">
+                    <div class="about-title">
+                        <h1>About Me</h1>
+                        <p>Manage your personal information and social profiles.</p>
+                    </div>
+                    <button class="save-btn">
+                        <i class="ri-save-3-line"></i>
+                        Save Changes
+                    </button>
+                </div>
+
+                <!---About Card--->
+                <div class="about-card">
+
+                    <div class="about-top">
+
+                        <div class="profile-panel">
+
+                            <h3>Profile Image</h3>
+                            <div class="profile-image-wrapper">
+                                <img src="https://i.pinimg.com/474x/ee/dd/83/eedd8305a614cd0c575216bea514c693.jpg?nii=t"
+                                    alt="Profile">
+                                <button class="edit-image-btn">
+                                    <i class="ri-edit-2-line"></i>
+                                </button>
+                            </div>
+                            <button class="change-image-btn">
+                                <i class="ri-arrow-up-line"></i>
+                                Change Image
+                            </button>
+                            <p class="image-note">
+                                JPG, PNG (max. 2MB)
+                            </p>
+
+                        </div>
+
+                        <div class="form-panel">
+
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" id="full-name" placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profession">Profession</label>
+                                <input type="text" id="profession" placeholder="Enter your profession">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bio">Short Bio</label>
+                                <textarea id="bio" row="6" placeholder="Write something about yourself...."></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="social-section">
+                        <h3>Social Links</h3>
+
+                        <div class="social-grid">
+                            <div class="form-group">
+                                <label for="github">GitHub URL</label>
+                                <input type="url" id="github" placeholder="https://github.com/username">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="linkedin">linkedIn URL</label>
+                                <input type="url" id="linkedin" placeholder="https://github.com/username">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="example@gmail.com">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!---Tips--->
+                <div class="about-tips-card">
+
+                    <div class="about-tips-header">
+                        <div class="about-tips-icon">
+                            <i class="ri-lightbulb-line"></i>
+                        </div>
+                        <h3>Quick Tips</h3>
+                    </div>
+
+                    <ul class="about-tips-list">
+                        <li>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Add a professional profile image.
+                        </li>
+                        <li>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Write a short and clear bio that describes you.
+                        </li>
+                        <li>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Add your social links to connect.
+                        </li>
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+
+            <!---------------------------------------Projects Section---------------------------------------->
+            <section id="projects-section">
+
+                <!---Projects Header--->
+                <div class="projects-header">
+                    <div class="projects-title">
+                        <h1>Projects</h1>
+                        <p>Add and manage your projects.</p>
+                    </div>
+                </div>
+
+                <!---Add New Project--->
+                <div class="project-form-container">
+
+                    <h2>Add New Project</h2>
+                    <div class="project-form-content">
+
+                        <div class="project-upload-section">
+
+                            <div class="project-upload-box">
+
+                                <label class="upload-label">Project Image</label>
+                                <div class="upload-area">
+                                    <i class="ri-upload-cloud-2-line"></i>
+                                    <h4>Upload Image</h4>
+                                    <p>JPG, PNG (max. 2MB)</p>
+                                    <input type="file" id="project-image" hidden>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="project-details-section">
+
+                            <!---Row 1--->
+                            <div class="project-row">
+
+                                <div class="project-input-group">
+                                    <label for="project-title">Project Title</label>
+                                    <input type="text" id="project-title" placeholder="e.g. Portfolio Website">
+                                </div>
+
+                                <div class="project-input-group">
+                                    <label for="technologies">Technolgies Used</label>
+                                    <input type="text" id="technologies" placeholder="e.g. HTML, CSS, JavaScript">
+                                </div>
+
+                            </div>
+
+                            <!---Row 2--->
+                            <div class="project-row">
+
+                                <div class="project-input-group">
+
+                                    <label for="github-link">GitHub</label>
+                                    <div class="project-input-icon">
+                                        <i class="ri-github-fill"></i>
+                                        <input type="url" id="github-link" placeholder="github.com/username/repository">
+                                    </div>
+
+                                </div>
+
+                                <div class="project-input-group">
+
+                                    <label for="live-demo">Live Demo</label>
+                                    <div class="project-input-icon">
+                                        <i class="ri-global-line"></i>
+                                        <input type="url" id="live-demo" placeholder="your-site.com">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!---Row 3--->
+                            <div class="project-input-group">
+                                <label for="project-description">Project Description</label>
+                                <textarea id="project-description" rows="5"
+                                    placeholder="Write a short description about your project..."></textarea>
+                            </div>
+
+                            <div class="save-project-wrapper">
+                                <button class="save-project-btn">Save Project</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!---Your Projects--->
+                <div class="projects-list-container">
+
+                    <div class="projects-list-header">
+
+                        <h2>Your Projects</h2>
+
+                        <div class="projects-sort">
+                            <label for="sort-projects">Sort by:</label>
+                            <select id="sort-projects">
+                                <option>Latest First</option>
+                                <option>Oldest First</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="projects-grid">
+
+                        <div class="project-card">
+
+                            <img src="" alt="Portfolio Website" class="project-card-image">
+
+                            <div class="project-card-content">
+
+                                <h3>Portfolio Website</h3>
+
+                                <div class="project-tech-stack">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
+
+                                <p>A personal portfolio website built with html css and javascript.</p>
+
+                                <div class="project-links">
+                                    <a href="#"><i class="ri-github-fill"></i></a>
+                                    <a href="#"><i class="ri-global-line"></i></a>
+                                </div>
+
+                                <div class="project-actions">
+                                    <button class="edit-project-btn"><i class="ri-pencil-line"></i>Edit</button>
+                                    <button class="delete-project-btn"><i
+                                            class="ri-delete-bin-6-line"></i>Delete</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!---Tips--->
+                <div class="projects-tips">
+                    <i class="ri-lightbulb-line"></i>
+                    <p><strong>Tip: </strong> Add high quality projects with live demo links to showcasec your work
+                        better.</p>
+                </div>
+
+            </section>
+
+
+            <!----------------------------------------Skills Section----------------------------------------->
+            <section id="skills-section">
+
+                <!---Skills Header--->
+                <div class="skills-header">
+
+                    <div class="skills-title">
+                        <h1>Skills</h1>
+                        <p>Add, edit or manage your professional skills.</p>
+                    </div>
+
+                </div>
+
+                <!---Add Skill Card--->
+                <div class="skills-form-container ">
+
+                    <!---Form Heading--->
+                    <div class="skills-form-header">
+                        <h2>Add New Skill</h2>
+                    </div>
+
+                    <div class="skills-form-content">
+
+                        <div class="skills-form-left">
+
+                            <div class="input-group">
+                                <label for="skill-name">Skill Name</label>
+                                <input type="text" id="skill-name" placeholder="Enter your skill name e.g. Javascript">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="skill-level">Skill Level</label>
+                                <div class="skill-range">
+                                    <input type="range" id="skill-level" min="0" max="100" value="70">
+                                    <span class="range-value">70%</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="skills-form-right">
+
+                            <div class="input-group">
+
+                                <label for="skill-category">Skill Category</label>
+                                <select id="skill-category">
+
+                                    <option selected disabled>Select Category</option>
+                                    <option>Frontend</option>
+                                    <option>Backend</option>
+                                    <option>Database</option>
+                                    <option>Tools</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="input-group">
+
+                                <label for="skill-icon">Icon</label>
+                                <div class="icon-input">
+
+                                    <input type="text" id="skill-icon" placeholder="e.g. ri-javascript-line">
+                                    <button type="button">
+                                        <i class="ri-flag-line"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="skills-button-container">
+
+                        <button class="primary-btn">
+                            <i class="ri-add-line"></i>
+                            Add Skill
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!----Skills List--->
+                <div class="skills-list-container">
+
+                    <!----List Header--->
+                    <div class="skills-list-header">
+
+
+                        <div class="skills-list-title">
+                            <h2>Your Skills</h2>
+                        </div>
+
+
+                        <div class="skills-sort">
+
+                            <label for="sort-skills">Sort by: </label>
+                            <select id="sort-skills">
+                                <option>Newest First</option>
+                                <option>Oldest First</option>
+                                <option>Highest Level</option>
+                                <option>Lowest Level</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!----Skills Cards--->
+                    <div class="skills-grid">
+
+                        <!---Skill Cards come here--->
+
+                        <!---Skill Card 1--->
+                        <div class="skill-card">
+
+                            <div class="skill-card-header">
+
+                                <div class="skill-info">
+                                    <h3>Javascript</h3>
+                                    <span class="skill-badge">Advanced</span>
+
+                                </div>
+
+
+                                <div class="skill-actions">
+
+                                    <button class=edit-btn>
+                                        <i class="ri-edit-2-line"></i>
+                                    </button>
+
+                                    <button class="delete-btn">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="skill-progress">
+
+                                <div class="progress-bar">
+
+                                    <div class="progress-fill">
+
+                                    </div>
+
+                                </div>
+
+                                <span class="progress-value">90%</span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!---Skill Card 2--->
+                        <div class="skill-card">
+
+                            <div class="skill-card-header">
+
+                                <div class="skill-info">
+                                    <h3>TypeScript</h3>
+                                    <span class="skill-badge">Advanced</span>
+
+                                </div>
+
+
+                                <div class="skill-actions">
+
+                                    <button class=edit-btn>
+                                        <i class="ri-edit-2-line"></i>
+                                    </button>
+
+                                    <button class="delete-btn">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="skill-progress">
+
+                                <div class="progress-bar">
+
+                                    <div class="progress-fill">
+
+                                    </div>
+
+                                </div>
+
+                                <span class="progress-value">80%</span>
+
+                            </div>
+
+                        </div>
+
+                        <!---Skill Card 3--->
+                        <div class="skill-card">
+
+                            <div class="skill-card-header">
+
+                                <div class="skill-info">
+                                    <h3>React.js</h3>
+                                    <span class="skill-badge">Advanced</span>
+
+                                </div>
+
+
+                                <div class="skill-actions">
+
+                                    <button class=edit-btn>
+                                        <i class="ri-edit-2-line"></i>
+                                    </button>
+
+                                    <button class="delete-btn">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="skill-progress">
+
+                                <div class="progress-bar">
+
+                                    <div class="progress-fill">
+
+                                    </div>
+
+                                </div>
+
+                                <span class="progress-value">90%</span>
+
+                            </div>
+
+                        </div>
+
+                        <!---Skill Card 4--->
+                        <div class="skill-card">
+
+                            <div class="skill-card-header">
+
+                                <div class="skill-info">
+                                    <h3>HTML</h3>
+                                    <span class="skill-badge">Advanced</span>
+
+                                </div>
+
+
+                                <div class="skill-actions">
+
+                                    <button class=edit-btn>
+                                        <i class="ri-edit-2-line"></i>
+                                    </button>
+
+                                    <button class="delete-btn">
+                                        <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="skill-progress">
+
+                                <div class="progress-bar">
+
+                                    <div class="progress-fill">
+
+                                    </div>
+
+                                </div>
+
+                                <span class="progress-value">90%</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!---Tips--->
+                <div class="skills-tips-card">
+
+                    <div class="skills-tips-header">
+                        <div class="skills-tips-icon">
+                            <i class="ri-lightbulb-line"></i>
+                        </div>
+                        <h3>Quick Tips</h3>
+                    </div>
+
+                    <ul class="skills-tips-list">
+                        <li>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Add skills that are relevant to your work. keep your skills updated to attract better
+                            opportunities.
+                        </li>
+                        <li>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Showcase the technologies you use most offten to help employees quickly understand your
+                            expertise.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!----------------------------------------Experience Section--------------------------------------->
+            <div id="experience-section">
+
+                <!----Expereience page header---->
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h1>Experience</h1>
+                        <p>Add and manage your work experience.</p>
+                    </div>
+                </div>
+
+
+                <!---Experience adding form-->
+                <div class="experience-form-container">
+
+                    <div class="experience-form">
+
+                        <div class="experience-company">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" placeholder="e.g. Decode Lab">
+                        </div>
+
+                        <div class="experience-position">
+                            <label for="positiom">Position</label>
+                            <input type="text" id="position" placeholder="e.g. Frontend Intern">
+                        </div>
+
+                        <div class="experience-duration">
+                            <label for="duration">Duration</label>
+                            <input type="text" id="duration" placeholder="e.g. Jan 2026 - Present">
+                        </div>
+
+                        <div class="experience-discription">
+                            <label for="experience-discription">Discription</label>
+                            <textarea id="experience-discription" rows="4"
+                                placeholder="Describe your role and achievements...."></textarea>
+                        </div>
+
+                    </div>
+
+                    <!---Save Button--->
+                    <div class="experience-save-btn">
+                        <button id="save-experience-btn">
+                            Save Experience
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="experience-list-starter">
+                    <h1>All Experiences :</h1>
+                </div>
+                <!---Experiences list---->
+                <div class="experience-list-container">
+
+                    <!---Experience Cards---->
+
+                    <!--Experience Card 1-->
+                    <div class="experience-card">
+
+                        <div class="experience-card-header">
+
+                            <div class="experience-details">
+                                <h3>Decode Lab</h3>
+                                <h4>Frontend Intern</h4>
+                                <span>Jan 2026 - Present</span>
+                            </div>
+
+                            <div class="experience-actions">
+
+                                <button class="experience-edit-btn">
+                                    <i class="ri-edit-line"></i>
+                                </button>
+
+                                <buuton class="experience-delete-btn">
+                                    <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                            </div>
+
+                        </div>
+
+                        <p class="experience-text">
+                            Working on real projects and improving my frontend skills.
+                        </p>
+
+                    </div>
+
+                    <!--Experience Card 2-->
+                    <div class="experience-card">
+
+                        <div class="experience-card-header">
+
+                            <div class="experience-details">
+                                <h3>Decode Lab</h3>
+                                <h4>Frontend Intern</h4>
+                                <span>Jan 2026 - Present</span>
+                            </div>
+
+                            <div class="experience-actions">
+
+                                <button class="experience-edit-btn">
+                                    <i class="ri-edit-line"></i>
+                                </button>
+
+                                <buuton class="experience-delete-btn">
+                                    <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                            </div>
+
+                        </div>
+
+                        <p class="experience-text">
+                            Working on real projects and improving my frontend skills.
+                        </p>
+
+                    </div>
+
+                    <!--Experience Card 3-->
+                    <div class="experience-card">
+
+                        <div class="experience-card-header">
+
+                            <div class="experience-details">
+                                <h3>Decode Lab</h3>
+                                <h4>Frontend Intern</h4>
+                                <span>Jan 2026 - Present</span>
+                            </div>
+
+                            <div class="experience-actions">
+
+                                <button class="experience-edit-btn">
+                                    <i class="ri-edit-line"></i>
+                                </button>
+
+                                <buuton class="experience-delete-btn">
+                                    <i class="ri-delete-bin-6-line"></i>
+                                    </button>
+
+                            </div>
+
+                        </div>
+
+                        <p class="experience-text">
+                            Working on real projects and improving my frontend skills.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!---Experience Tips--->
+                <div class="experience-tips">
+                    <i class="ri-lightbulb-line"></i>
+                    <p><strong>Tip: </strong> Highlight your key responsibilities and measureable achievements.
+                        Focus on the impact you made rather than listing every task.</p>
+                </div>
+
+            </div>
+
+
+            <!----------------------------------------Resume Section------------------------------------------>
+            <div id="resume-section">
+
+                <!---Resume-Header--->
+                <div class="resume-header">
+
+                    <div class="resume-title">
+
+                        <h1>Resume</h1>
+                        <p>Upload your resume (PDF) .</p>
+                        <div class="supported-format">
+                            <span>Supported format:</span>
+                            <strong>PDF only</strong>
+                            <span>.</span>
+                            <spann>Max size: 5MB</spann>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!----Resume upload Container--->
+                <div class="resume-upload-container">
+
+                    <div class="resume-upload-area">
+
+                        <div class="upload-icon">
+                            <i class="ri-upload-cloud-2-line"></i>
+                        </div>
+                        <h3>Drag & drop your PDF here</h3>
+                        <span class="upload-divider">or</span>
+                        <button id="choose-file-btn">
+                            Choose File
+                        </button>
+                        <input type="file" id=resume-file accept=".pdf" hidden>
+
+                    </div>
+
+                    <div class="resume-link-area">
+
+                        <label for="resume-link">
+                            or paste your resume link
+                        </label>
+                        <div class="resume-link-input">
+                            <i class="ri-link"></i>
+                            <input type="url" id="resume-link" placeholder="https://example.com/your-resume.pdf">
+                        </div>
+                        <button id="upload-resume-btn">
+                            <i class="ri-upload-2-line"></i>
+                            Upload Resume
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!----Resume Info Container---->
+                <div class="resume-info-container">
+
+                    <!---------------- Current Resume ----------------->
+                    <div class="current-resume-section">
+
+                        <div class="current-resume-header">
+
+                            <h2>Current Resume</h2>
+                            <span class="resume-status">
+                                Active
+                            </span>
+
+                        </div>
+
+                        <div class="resume-card">
+
+                            <div class="resume-details">
+
+                                <div class="resume-icon">
+                                    <i class="ri-file-pdf-2-fill"></i>
+                                </div>
+                                <div class="resume-info">
+                                    <h3>Ayesha_Nadeem_Resume.pdf</h3>
+
+                                    <div class="resume-meta">
+                                        <span>
+                                            <i class="ri-calendar-line"></i>
+                                            Uploaded on May 20, 2024
+                                        </span>
+                                        <span>.</span>
+                                        <span>
+                                            <i class="ri-file-list-3-line"></i>
+                                            312 KB
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="resume-actions">
+
+                                <button class="resume-preview-btn">
+                                    <i class="ri-eye-line"></i>
+                                    Preview
+                                </button>
+                                <button class="resume-delete-btn">
+                                    <i class="ri-delete-bin-line"></i>
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <button class="download-resume-btn">
+                            <i class="ri-download-line"></i>
+                            Download Resume
+                        </button>
+
+                    </div>
+
+                    <!--================ Resume Tips ================-->
+
+                    <div class="resume-tips-section">
+
+                        <div class="resume-tips-header">
+                            <h2>Resume Tips</h2>
+                        </div>
+
+                        <div class="resume-tips-list">
+
+                            <div class="resume-tip">
+                                <i class="ri-checkbox-circle-line"></i>
+                                <p>Keep your resume to one or two pages.</p>
+                            </div>
+
+                            <div class="resume-tip">
+                                <i class="ri-checkbox-circle-line"></i>
+                                <p>Highlight your latest skills and projects.</p>
+                            </div>
+
+                            <div class="resume-tip">
+                                <i class="ri-checkbox-circle-line"></i>
+                                <p>Use clear headings and simple formatting.</p>
+                            </div>
+
+                            <div class="resume-tip">
+                                <i class="ri-checkbox-circle-line"></i>
+                                <p>Update your resume regularly.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!----Resume Footer---->
+                <div class="resume-footer">
+
+                    <div class="resume-footer-left">
+
+                        <div class="resume-footer-icon">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+
+                        <div class="resume-footer-text">
+                            <h3>Your Resume is only visible to you in the dashboard</h3>
+                            <p>
+                                It will be available for download on portfolio preview.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="resume-footer-right">
+
+                        <button class="preview-btn">
+                            View Preview
+                            <i class="ri-external-link-line"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!----------------------------------------Contact Section------------------------------------------>
+            <section id="contact-section">
+
+                <!-- Contact Header -->
+                <div class="contact-header">
+
+                    <div class="contact-title">
+                        <h1>Contact</h1>
+                        <p>Manage your contact information.</p>
+                    </div>
+
+                </div>
+
+                <!-- Contact Card -->
+                <div class="contact-container">
+
+                    <h2>Contact Information</h2>
+                    <p>This information will be displayed on your portfolio.</p>
+
+                    <!-- Email Field -->
+                    <div class="contact-field">
+
+                        <div class="contact-label">
+
+                            <div class="contact-icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                        </div>
+
+                        <div class="contact-input">
+
+                            <input type="email" id="email" placeholder="ayesha.nadeem@example.com">
+
+                        </div>
+
+                    </div>
+
+                    <!-- Phone Number Field -->
+                    <div class="contact-field">
+
+                        <div class="contact-label">
+
+                            <div class="contact-icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                        </div>
+
+                        <div class="contact-input">
+
+                            <input type="tel" id="phone" placeholder="+92 300 1234567">
+
+                        </div>
+
+                    </div>
+
+                    <!-- Location Field -->
+                    <div class="contact-field">
+
+                        <div class="contact-label">
+
+                            <div class="contact-icon">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+
+                            <label for="location">
+                                Location
+                            </label>
+
+                        </div>
+
+                        <div class="contact-input">
+
+                            <input type="text" id="location" placeholder="Gujrat, Pakistan">
+
+                        </div>
+
+                    </div>
+
+                    <!-- LinkedIn Field -->
+                    <div class="contact-field">
+
+                        <div class="contact-label">
+
+                            <div class="contact-icon">
+                                <i class="ri-linkedin-box-line"></i>
+                            </div>
+
+                            <label for="linkedin">
+                                LinkedIn URL
+                            </label>
+
+                        </div>
+
+                        <div class="contact-input">
+
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/your-profile">
+
+                        </div>
+
+                    </div>
+
+                    <!-- GitHub Field -->
+                    <div class="contact-field">
+
+                        <div class="contact-label">
+
+                            <div class="contact-icon">
+
+                                <i class="ri-github-line"></i>
+
+                            </div>
+
+                            <label for="github">
+
+                                GitHub URL
+
+                            </label>
+
+                        </div>
+
+                        <div class="contact-input">
+
+                            <input type="url" id="github" placeholder="https://github.com/your-username">
+
+                        </div>
+
+                    </div>
+
+                    <!-- Save Button -->
+                    <div class="contact-btn-container">
+
+                        <button id="save-contact-btn">
+                            <i class="ri-save-line"></i>
+                            <span>Save Changes</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </main>
+        
+    </div>
+
+    <!------JavaScript file-------->
+    <script src="../js/portfolio-builder.js"></script>
+
+</body>
+
+</html>
