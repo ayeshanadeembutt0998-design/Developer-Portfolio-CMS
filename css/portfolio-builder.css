@@ -159,7 +159,7 @@ Sidebar Styling
 About Section Styling
 ==============================*/
 #about-section {
-    display: none;
+    /* display: none; */
 }
 .about-header {
     display: flex;
@@ -1568,7 +1568,7 @@ Resume Section Styling
 Content Section Styling
 ==============================*/
 #contact-section{
-    /* display: none; */
+    display: none;
 }
 .contact-header{
     margin-bottom: clamp(2rem,3vw,2.5rem);

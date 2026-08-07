@@ -113,7 +113,7 @@
                         <h1>About Me</h1>
                         <p>Manage your personal information and social profiles.</p>
                     </div>
-                    <button class="save-btn">
+                    <button class="save-btn" id = "save-about-btn">
                         <i class="ri-save-3-line"></i>
                         Save Changes
                     </button>
@@ -128,7 +128,7 @@
 
                             <h3>Profile Image</h3>
                             <div class="profile-image-wrapper">
-                                <img src="https://i.pinimg.com/474x/ee/dd/83/eedd8305a614cd0c575216bea514c693.jpg?nii=t"
+                                <img src=""
                                     alt="Profile">
                                 <button class="edit-image-btn">
                                     <i class="ri-edit-2-line"></i>
@@ -138,6 +138,7 @@
                                 <i class="ri-arrow-up-line"></i>
                                 Change Image
                             </button>
+                            <input type = "file" id = "profile-image-input" accept="image/*" hidden>
                             <p class="image-note">
                                 JPG, PNG (max. 2MB)
                             </p>
@@ -176,7 +177,7 @@
 
                             <div class="form-group">
                                 <label for="linkedin">linkedIn URL</label>
-                                <input type="url" id="linkedin" placeholder="https://github.com/username">
+                                <input type="url" id="linkedin" placeholder="https://linkedin.com/username">
                             </div>
 
                             <div class="form-group full-width">
