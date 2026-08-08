@@ -706,7 +706,7 @@ Projects Section Styling
 Skills Section Styling
 ==============================*/
 #skills-section {
-    /* display: none; */
+    display: none;
 }
 .skills-header {
     margin-bottom: clamp(2rem,3vw,2.5rem);
@@ -1009,7 +1009,7 @@ border: 1px solid var(--border-color);
 Experience Section Styling
 ==============================*/
 #experience-section {
-     display: none;
+     /* display: none; */
    
 }
 .experience-header {

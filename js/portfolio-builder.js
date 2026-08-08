@@ -494,3 +494,198 @@ function editSkill(index) {
 
     skillLevelValue.textContent = `${skill.level}%`;
 }
+
+
+
+
+
+//===============Experience Section===================
+
+
+//================ Experience Elements =================
+
+const companyInput = document.getElementById("company");
+const positionInput = document.getElementById("position");
+const durationInput = document.getElementById("duration");
+const experienceDescriptionInput = document.getElementById("experience-discription");
+
+const saveExperienceBtn = document.getElementById("save-experience-btn");
+
+const experienceListContainer = document.querySelector(".experience-list-container");
+
+
+//================ Experience Data =================
+
+let experiences = [];
+let editingExperienceIndex = null;
+
+
+//================ Experience Events =================
+
+saveExperienceBtn.addEventListener("click", saveExperience);
+
+
+//================ Save Experience =================
+
+function saveExperience() {
+
+    const experienceData = {
+        company: companyInput.value.trim(),
+        position: positionInput.value.trim(),
+        duration: durationInput.value.trim(),
+        description: experienceDescriptionInput.value.trim()
+    };
+    if (
+        !experienceData.company ||
+        !experienceData.position ||
+        !experienceData.duration ||
+        !experienceData.description
+    ) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+ //================ Add / Edit =================
+    if (editingExperienceIndex !== null) {
+        experiences[editingExperienceIndex] = experienceData;
+        editingExperienceIndex = null;
+    } else {
+        experiences.push(experienceData);
+    }
+
+    localStorage.setItem("experiences", JSON.stringify(experiences));
+
+    displayExperiences();
+    resetExperienceForm();
+}
+
+
+//================ Reset Experience Form =================
+function resetExperienceForm() {
+
+    companyInput.value = "";
+    positionInput.value = "";
+    durationInput.value = "";
+    experienceDescriptionInput.value = "";
+
+    editingExperienceIndex = null;
+}
+
+//================ Display Experiences =================
+
+function displayExperiences() {
+
+    experienceListContainer.innerHTML = "";
+
+    experiences.forEach(function (experience, index) {
+
+        const experienceCard = document.createElement("div");
+
+        experienceCard.className = "experience-card";
+
+        experienceCard.dataset.index = index;
+
+
+        experienceCard.innerHTML = `
+            <div class="experience-card-header">
+
+                <div class="experience-details">
+
+                    <h3>${experience.company}</h3>
+
+                    <h4>${experience.position}</h4>
+
+                    <span>${experience.duration}</span>
+
+                </div>
+
+
+                <div class="experience-actions">
+
+                    <button class="experience-edit-btn">
+                        <i class="ri-edit-line"></i>
+                    </button>
+
+                    <button class="experience-delete-btn">
+                        <i class="ri-delete-bin-6-line"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <p class="experience-text">
+                ${experience.description}
+            </p>
+        `;
+
+
+        //================ Edit Button =================
+        const editBtn =
+            experienceCard.querySelector(".experience-edit-btn");
+
+        editBtn.addEventListener("click", function () {
+
+            editExperience(index);
+
+        });
+
+        //================ Delete Button =================
+
+        const deleteBtn =
+            experienceCard.querySelector(".experience-delete-btn");
+
+        deleteBtn.addEventListener("click", function () {
+
+            const index = experienceCard.dataset.index;
+
+            experiences.splice(index, 1);
+
+            localStorage.setItem(
+                "experiences",
+                JSON.stringify(experiences)
+            );
+
+            displayExperiences();
+
+        });
+
+
+        experienceListContainer.appendChild(experienceCard);
+
+    });
+}
+
+
+//================ Edit Experience =================
+
+function editExperience(index) {
+
+    const experience = experiences[index];
+
+    editingExperienceIndex = index;
+
+    companyInput.value = experience.company;
+    positionInput.value = experience.position;
+    durationInput.value = experience.duration;
+    experienceDescriptionInput.value = experience.description;
+
+}
+
+
+//================ Load Experiences =================
+
+function loadExperiences() {
+
+    const savedExperiences =
+        localStorage.getItem("experiences");
+
+    if (!savedExperiences) {
+        return;
+    }
+    experiences = JSON.parse(savedExperiences);
+}
+
+//================ Initial Load =================
+loadExperiences();
+displayExperiences();
