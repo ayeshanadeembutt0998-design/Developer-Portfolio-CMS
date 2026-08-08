@@ -329,3 +329,168 @@ function editProject(index) {
     uploadPlaceholder.style.display = "none";
     projectUploadArea.style.border = "2px solid var(--accent-color)";
 }
+
+
+
+
+
+
+
+
+//================Skills Elements=====================
+const skillNameInput = document.getElementById("skill-name");
+const skillCategoryInput = document.getElementById("skill-category");
+const skillLevelInput = document.getElementById("skill-level");
+const skillIconInput = document.getElementById("skill-icon");
+const skillLevelValue = document.querySelector(".range-value");
+
+const addSkillBtn = document.querySelector(".skills-button-container .primary-btn");
+
+const skillsGrid = document.querySelector(".skills-grid");
+const sortSkills = document.getElementById("sort-skills");
+
+
+//======================Skills Data=====================
+let skills = [];
+let editingSkillIndex = null;
+
+
+//======================Skill Events=====================
+skillLevelInput.addEventListener("input",function(){
+    skillLevelValue.textContent = `${skillLevelInput.value}%`;
+});
+
+addSkillBtn.addEventListener("click",saveSkill);
+
+
+//====Save Skill======
+function saveSkill() {
+    const skillData = {
+        name : skillNameInput.value.trim(),
+        category : skillCategoryInput.value.trim(),
+        level : Number(skillLevelInput.value),
+        icon : skillIconInput.value.trim()
+    };
+    if(!skillData.name || !skillData.category || !skillData.category || skillData.category == "Select Category" || skillData.level < 0 || skillData.level > 100){
+        alert("Please fill in all required fields correctly.");
+        return;
+    }
+    if(editingSkillIndex !== null) {
+        skills[editingSkillIndex] = skillData;
+        editingSkillIndex = null;
+    }
+    else {
+        skills.push(skillData);
+    }
+    localStorage.setItem("skills",JSON.stringify(skills));
+    displaySkills();
+    resetSkillForm();
+}
+
+//==============Reset Form=================
+function resetSkillForm() {
+    skillNameInput.value = "";
+
+    skillCategoryInput.selectedIndex = 0;
+
+    skillLevelInput.value = 70;
+    skillLevelValue.textContent = "70%";
+
+    skillIconInput.value = "";
+
+    editingSkillIndex = null;
+}
+
+
+//======Display Skill======
+function displaySkills () {
+
+    skillsGrid.innerHTML = "";
+
+    skills.forEach(function(skill,index) {
+        const skillCard = document.createElement("div");
+
+        skillCard.className = "skill-card";
+        skillCard.dataset.index = index;
+        skillCard.innerHTML = `
+            <div class="skill-card-header">
+
+                <div class="skill-info">
+
+                    <div class="skill-icon">
+                        <i class="${skill.icon}"></i>
+                    </div>
+
+                    <div>
+                        <h3>${skill.name}</h3>
+                        <span class="skill-badge">${skill.category}</span>
+                    </div>
+
+                </div>
+
+                <div class="skill-actions">
+
+                    <button class="edit-btn">
+                        <i class="ri-edit-2-line"></i>
+                    </button>
+
+                    <button class="delete-btn">
+                        <i class="ri-delete-bin-6-line"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="skill-progress">
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: ${skill.level}%"></div>
+                </div>
+
+                <span class="progress-value">${skill.level}%</span>
+
+            </div>
+        `;
+
+        const editBtn = skillCard.querySelector(".edit-btn");
+        editBtn.addEventListener("click",function() {
+            editSkill(index);
+        });
+
+        const deleteBtn = skillCard.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click",function () {
+            const index = skillCard.dataset.index;
+            skills.splice(index,1);
+            localStorage.setItem("skills",JSON.stringify(skills));
+            displaySkills();
+        });
+
+        skillsGrid.appendChild(skillCard);
+    })
+}
+
+//===========Load Skills=============
+function loadSkills () {
+    const savedSkills = localStorage.getItem("skills");
+    if(!savedSkills) {
+        return;
+    }
+    skills = JSON.parse(savedSkills);
+}
+loadSkills();
+displaySkills();
+
+function editSkill(index) {
+
+    const skill = skills[index];
+
+    editingSkillIndex = index;
+
+    skillNameInput.value = skill.name;
+    skillCategoryInput.value = skill.category;
+    skillLevelInput.value = skill.level;
+    skillIconInput.value = skill.icon;
+
+    skillLevelValue.textContent = `${skill.level}%`;
+}

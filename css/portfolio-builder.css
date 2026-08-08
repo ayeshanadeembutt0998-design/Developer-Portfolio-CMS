@@ -355,7 +355,7 @@ About Section Styling
 Projects Section Styling
 ==============================*/
 #projects-section {
-    /* display: none; */
+    display: none;
 }
 .projects-header {
      margin-bottom: clamp(1.5rem,2vw,2rem);
@@ -526,9 +526,11 @@ Projects Section Styling
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    /* transition: .2s; */
 }
 .save-project-btn:hover {
     opacity: .9;
+    /* transform: scale(1.04); */
 }
 .projects-list-container {
     margin-bottom: clamp(2rem,3vw,2.5rem);
@@ -631,6 +633,7 @@ Projects Section Styling
     align-items: center;
     padding: 1rem;
     border-top: 1px solid var(--border-color);
+   
 }
 .edit-project-btn {
     display: flex;
@@ -642,6 +645,7 @@ Projects Section Styling
     cursor: pointer;
     font-weight: 600;
     font-size: .9rem;
+    transition: .2s;
 }
 .edit-project-btn i {
     font-size: 1.3rem;
@@ -656,9 +660,14 @@ Projects Section Styling
     cursor: pointer;
     font-weight: 600;
     font-size: .9rem;
+    transition: .2s;
 }
 .delete-project-btn i {
     font-size: 1.3rem;
+}
+.edit-project-btn:hover,
+.delete-project-btn:hover {
+    transform: scale(1.1);
 }
 .projects-tips {
     display: flex;
@@ -697,7 +706,7 @@ Projects Section Styling
 Skills Section Styling
 ==============================*/
 #skills-section {
-    display: none;
+    /* display: none; */
 }
 .skills-header {
     margin-bottom: clamp(2rem,3vw,2.5rem);
@@ -801,6 +810,20 @@ Skills Section Styling
     cursor: pointer;
     color: var(--secondary-color);
 }
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-accent-color);
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+.skill-icon i {
+    font-size: 30px;
+}
 .skills-button-container {
     display: flex;
     justify-content: flex-end;
@@ -879,6 +902,11 @@ Skills Section Styling
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+}
+.skill-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 .skill-info h3 {
     font-size: 1.05rem;
