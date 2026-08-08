@@ -243,10 +243,13 @@
 
                                 <label class="upload-label">Project Image</label>
                                 <div class="upload-area">
-                                    <i class="ri-upload-cloud-2-line"></i>
-                                    <h4>Upload Image</h4>
-                                    <p>JPG, PNG (max. 2MB)</p>
-                                    <input type="file" id="project-image" hidden>
+                                    <img src = "" alt = "Project Preview" class = "project-upload-preview">
+                                    <div class = "upload-placeholder">
+                                        <i class="ri-upload-cloud-2-line"></i>
+                                        <h4>Upload Image</h4>
+                                        <p>JPG, PNG (max. 2MB)</p>
+                                        <input type="file" id="project-image" hidden>
+                                    </div>
                                 </div>
 
                             </div>
@@ -285,7 +288,7 @@
 
                                 <div class="project-input-group">
 
-                                    <label for="live-demo">Live Demo</label>
+                                    <label for="live-demo">Live Demo (optional)</label>
                                     <div class="project-input-icon">
                                         <i class="ri-global-line"></i>
                                         <input type="url" id="live-demo" placeholder="your-site.com">
@@ -297,8 +300,8 @@
 
                             <!---Row 3--->
                             <div class="project-input-group">
-                                <label for="project-description">Project Description</label>
-                                <textarea id="project-description" rows="5"
+                                <label for="project-discription">Project Description</label>
+                                <textarea id="project-discription" rows="5"
                                     placeholder="Write a short description about your project..."></textarea>
                             </div>
 
@@ -331,38 +334,7 @@
                     </div>
 
                     <div class="projects-grid">
-
-                        <div class="project-card">
-
-                            <img src="" alt="Portfolio Website" class="project-card-image">
-
-                            <div class="project-card-content">
-
-                                <h3>Portfolio Website</h3>
-
-                                <div class="project-tech-stack">
-                                    <span>HTML</span>
-                                    <span>CSS</span>
-                                    <span>JavaScript</span>
-                                </div>
-
-                                <p>A personal portfolio website built with html css and javascript.</p>
-
-                                <div class="project-links">
-                                    <a href="#"><i class="ri-github-fill"></i></a>
-                                    <a href="#"><i class="ri-global-line"></i></a>
-                                </div>
-
-                                <div class="project-actions">
-                                    <button class="edit-project-btn"><i class="ri-pencil-line"></i>Edit</button>
-                                    <button class="delete-project-btn"><i
-                                            class="ri-delete-bin-6-line"></i>Delete</button>
-                                </div>
-
-                            </div>
-
-                        </div>
-
+                        <!---Cards Come here--->
                     </div>
 
                 </div>

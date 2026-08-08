@@ -159,7 +159,7 @@ Sidebar Styling
 About Section Styling
 ==============================*/
 #about-section {
-    /* display: none; */
+    display: none;
 }
 .about-header {
     display: flex;
@@ -355,7 +355,7 @@ About Section Styling
 Projects Section Styling
 ==============================*/
 #projects-section {
-    display: none;
+    /* display: none; */
 }
 .projects-header {
      margin-bottom: clamp(1.5rem,2vw,2rem);
@@ -404,6 +404,9 @@ Projects Section Styling
     margin-bottom: 1rem;
 }
 .upload-area {
+    position: relative;
+    overflow: hidden;
+
     height: 250px;
     border: 2px dashed var(--accent-color);
     border-radius: var(--radius);
@@ -414,6 +417,13 @@ Projects Section Styling
     justify-content: center;
     text-align: center;
     cursor: pointer;
+}
+.project-upload-preview {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
 }
 .upload-area i {
     font-size: 3rem;
@@ -516,6 +526,9 @@ Projects Section Styling
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+}
+.save-project-btn:hover {
+    opacity: .9;
 }
 .projects-list-container {
     margin-bottom: clamp(2rem,3vw,2.5rem);
