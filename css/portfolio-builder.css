@@ -47,7 +47,7 @@ LIGHT THEME (DEFAULT)
 /*==============================
 DARK THEME SIDEBAR HOVER
 ==============================*/
-.dark-theme .sidebar .nav-item:hover {
+.dark-theme .sidebar .nav-item:not(.reset-btn):hover {
     background-color: #334155;
 }
 
@@ -157,6 +157,10 @@ Sidebar Styling
 
 .reset-btn {
     color: #ef4444;
+}
+.reset-btn:hover {
+    background-color: #fdeeee;
+    width: 100%;
 }
 
 .help-card {

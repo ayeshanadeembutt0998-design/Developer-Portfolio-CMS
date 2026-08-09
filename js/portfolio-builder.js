@@ -74,6 +74,29 @@ themeSwitcherBtn.addEventListener("click", function () {
 
 
 
+// ============ Reset Portfolio ============
+
+const resetPortfolioBtn = document.getElementById("reset-portfolio-btn");
+
+resetPortfolioBtn.addEventListener("click", function () {
+    const confirmReset = confirm(
+        "Are you sure you want to reset your portfolio? All saved portfolio data will be deleted."
+    );
+    if (!confirmReset) {
+        return;
+    }
+    // Remove portfolio data
+    localStorage.removeItem("aboutData");
+    localStorage.removeItem("profileImage");
+    localStorage.removeItem("projects");
+    localStorage.removeItem("skills");
+    localStorage.removeItem("experiences");
+    localStorage.removeItem("contactData");
+    localStorage.removeItem("resumeData");
+    // Reload the dashboard
+    location.reload();
+});
+
 
 
 
