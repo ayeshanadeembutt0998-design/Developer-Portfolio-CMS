@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 /*==============================
 LIGHT THEME (DEFAULT)
 ==============================*/
@@ -28,8 +30,9 @@ LIGHT THEME (DEFAULT)
     --radius: .6rem;
 
     /* Shadow */
-    --shadow: 0 4px 15px rgba(0,0,0,.08);
+    --shadow: 0 4px 15px rgba(0, 0, 0, .08);
 }
+
 .dark-theme {
     /* Dark Theme */
     --bg-color: #0F172A;
@@ -38,20 +41,41 @@ LIGHT THEME (DEFAULT)
     --secondary-color: #94A3B8;
     --accent-color: #8B5CF6;
     --border-color: #334155;
+    --light-accent-color: #eddffa;
 }
+
+/*==============================
+DARK THEME SIDEBAR HOVER
+==============================*/
+.dark-theme .sidebar .nav-item:hover {
+    background-color: #334155;
+}
+
+.dark-theme .sidebar .nav-item:not(.reset-btn):hover {
+    background-color: #334155;
+    color: #F8FAFC;
+}
+
+.dark-theme .sidebar .nav-item:not(.reset-btn):hover i {
+    color: #F8FAFC;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     background: var(--bg-color);
     color: var(--primary-text)
 }
+
 .dashboard {
     display: flex;
     min-height: 100vh;
 }
+
 .main-content {
     flex: 1;
-    padding: clamp(1rem,2vw,2rem);
+    padding: clamp(1rem, 2vw, 2rem);
 }
+
 /*==============================
 Sidebar Styling
 ==============================*/
@@ -64,27 +88,33 @@ Sidebar Styling
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .logo {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .logo i {
     font-size: 2.5rem;
     color: var(--accent-color);
     font-weight: 900;
 }
+
 .logo h2 {
     font-size: 1.8rem;
 }
+
 .logo p {
     font-size: 1.4rem;
 }
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
+
 .nav-item {
     display: flex;
     align-items: center;
@@ -98,19 +128,24 @@ Sidebar Styling
     color: var(--primary-text);
     transition: .3s;
 }
+
 .nav-item:hover {
     background: #F3F4F6;
+    width: 100%;
 }
+
 .nav-item.active {
     background: var(--accent-color);
     color: white;
 }
+
 .preview-section,
 .appearance-section,
 .danger-section {
     border-top: 1px solid var(--border-color);
     padding-top: 1rem;
 }
+
 .sidebar-nav h4,
 .appearance-section h4,
 .danger-section h4 {
@@ -119,24 +154,29 @@ Sidebar Styling
     text-transform: uppercase;
     margin-bottom: .8rem;
 }
+
 .reset-btn {
     color: #ef4444;
 }
+
 .help-card {
     margin-top: auto;
     background-color: var(--light-accent-color);
     border-radius: var(--radius);
     padding: 1rem;
 }
+
 .help-card h3 {
     color: var(--accent-color);
     margin-bottom: .5rem;
 }
+
 .help-card p {
     color: var(--secondary-color);
     font-size: .9rem;
     line-height: 1.5;
 }
+
 .help-card button {
     display: flex;
     gap: .7rem;
@@ -151,6 +191,7 @@ Sidebar Styling
     color: var(--accent-color);
     cursor: pointer;
 }
+
 .help-card i {
     margin-left: 1rem;
 }
@@ -161,21 +202,25 @@ About Section Styling
 #about-section {
     /* display: none; */
 }
+
 .about-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: clamp(1.5rem,2vw,2rem);
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
 }
+
 .about-title h1 {
-    font-size: clamp(1.6rem,2vw,2.2rem);
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
     margin-bottom: .35rem;
     font-weight: 700;
 }
+
 .about-title p {
     color: var(--secondary-color);
     font-size: .95rem;
 }
+
 .save-btn {
     display: flex;
     align-items: center;
@@ -189,35 +234,41 @@ About Section Styling
     cursor: pointer;
     transition: .3s;
 }
+
 .save-btn:hover {
     transform: translateY(-2px);
     opacity: .95;
 }
+
 .about-card {
     background: var(--card-color);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: clamp(1.5rem,2vw,2rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
     margin-bottom: 1.5rem;
 }
+
 .about-tips-card {
     background: var(--card-color);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: clamp(1.25rem,2vw,1.5rem);
+    padding: clamp(1.25rem, 2vw, 1.5rem);
 }
+
 .about-top {
     display: flex;
-    gap: clamp(1.5rem,2vw,2.5rem);
-    padding-bottom: clamp(1.5rem,2vw,2rem);
+    gap: clamp(1.5rem, 2vw, 2.5rem);
+    padding-bottom: clamp(1.5rem, 2vw, 2rem);
     border-bottom: 1px solid var(--border-color);
 }
+
 .profile-panel {
     width: 240px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .profile-image-wrapper {
     width: 230px;
     height: 230px;
@@ -231,12 +282,14 @@ About Section Styling
     position: relative;
     margin-bottom: 1.3rem;
 }
+
 .profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: none;
 }
+
 .profile-image-placeholder {
     display: flex;
     flex-direction: column;
@@ -245,16 +298,20 @@ About Section Styling
     gap: 10px;
     color: var(--secondary-color);
 }
+
 .profile-image-placeholder i {
     font-size: 4rem;
 }
+
 .profile-image-placeholder span {
     font-size: 0.95rem;
 }
+
 .profile-panel h3 {
     align-self: flex-start;
     margin-bottom: 1.5rem;
 }
+
 .change-image-btn {
     width: 100%;
     padding: .9rem;
@@ -265,27 +322,32 @@ About Section Styling
     cursor: pointer;
     font-size: 1rem;
 }
+
 .image-note {
     margin-top: .8rem;
     color: var(--secondary-color);
     font-size: .85rem;
 }
+
 .form-panel {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .form-group {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
+
 .form-group label {
     font-size: .95rem;
     font-weight: 600;
     color: var(--primary-text);
 }
+
 .form-group input,
 .form-group textarea {
     width: 100%;
@@ -299,36 +361,44 @@ About Section Styling
     outline: none;
     transition: .3s;
 }
+
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(124,58,237,.15);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, .15);
 }
+
 .form-group textarea {
     resize: none;
     min-height: 180px;
 }
+
 .social-section {
-    padding-top: clamp(1.5rem,2vw,2rem);
+    padding-top: clamp(1.5rem, 2vw, 2rem);
 }
+
 .social-section h3 {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
 }
+
 .social-grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
+
 .social-grid .full-width {
     grid-column: 1/-1;
 }
+
 .about-tips-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
+
 .about-tips-icon {
     width: 48px;
     height: 48px;
@@ -340,17 +410,20 @@ About Section Styling
     align-items: center;
     font-size: 1.2rem;
 }
+
 .about-tips-header h3 {
     font-size: 1.3rem;
     font-weight: 600;
 }
+
 .about-tips-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
-.about-tips-list li i{
+
+.about-tips-list li i {
     color: var(--accent-color);
     font-size: 1.1rem;
 }
@@ -362,45 +435,54 @@ Projects Section Styling
 #projects-section {
     display: none;
 }
+
 .projects-header {
-     margin-bottom: clamp(1.5rem,2vw,2rem);
+    margin-bottom: clamp(1.5rem, 2vw, 2rem);
 }
+
 .projects-header h1 {
-    font-size: clamp(1.6rem,2vw,2.2rem);
+    font-size: clamp(1.6rem, 2vw, 2.2rem);
     margin-bottom: .35rem;
     color: var(--primary-text);
     font-weight: 700;
 }
+
 .projects-header p {
     color: var(--secondary-color);
     font-size: .95rem;
 }
+
 .project-form-container {
     background: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: clamp(1.5rem,2vw,2rem);
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
     box-shadow: var(--shadow);
 }
+
 .project-form-container h2 {
-    font-size: clamp(1.35rem,2vw,1.6rem);
+    font-size: clamp(1.35rem, 2vw, 1.6rem);
     color: var(--primary-text);
     font-weight: 600;
     margin-bottom: 2rem;
 }
+
 .project-form-content {
     display: flex;
     gap: 2rem;
     /* align-items: center; */
 }
+
 .project-upload-section {
     width: 220px;
     flex-shrink: 0;
 }
+
 .project-details-section {
     flex: 1;
 }
+
 .upload-label {
     display: block;
     font-size: 1rem;
@@ -408,6 +490,7 @@ Projects Section Styling
     color: var(--primary-text);
     margin-bottom: 1rem;
 }
+
 .upload-area {
     position: relative;
     overflow: hidden;
@@ -423,6 +506,7 @@ Projects Section Styling
     text-align: center;
     cursor: pointer;
 }
+
 .project-upload-preview {
     display: none;
     width: 100%;
@@ -430,36 +514,43 @@ Projects Section Styling
     object-fit: cover;
     border-radius: var(--radius);
 }
+
 .upload-area i {
     font-size: 3rem;
     color: var(--accent-color);
     margin-bottom: 1rem;
 }
+
 .upload-area h4 {
     font-size: 1.1rem;
     color: var(--primary-text);
     margin-bottom: .5rem;
 }
+
 .upload-area p {
     font-size: .9rem;
     color: var(--secondary-color);
 }
+
 .project-row {
     display: flex;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
 .project-input-group {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
+
 .project-input-group label {
     font-size: .95rem;
     font-weight: 600;
     color: var(--primary-text);
     margin-bottom: .6rem;
 }
+
 .project-input-group input {
     width: 100%;
     padding: .9rem 1rem;
@@ -470,9 +561,11 @@ Projects Section Styling
     background: var(--card-color);
     outline: none;
 }
+
 .project-input-group input:focus {
     border-color: var(--accent-color);
 }
+
 .project-input-icon {
     display: flex;
     align-items: center;
@@ -481,6 +574,7 @@ Projects Section Styling
     overflow: hidden;
     background: var(--card-color);
 }
+
 .project-input-icon i {
     width: 3rem;
     text-align: center;
@@ -489,6 +583,7 @@ Projects Section Styling
     border-right: 1px solid var(--border-color);
     padding: .7rem 0;
 }
+
 .project-input-icon input {
     flex: 1;
     border: none;
@@ -498,9 +593,11 @@ Projects Section Styling
     background: transparent;
     color: var(--primary-text);
 }
-.project-input-icon:focus-within{
+
+.project-input-icon:focus-within {
     border-color: var(--accent-color);
 }
+
 .project-input-group textarea {
     width: 100%;
     min-height: 140px;
@@ -514,14 +611,17 @@ Projects Section Styling
     resize: none;
     outline: none;
 }
+
 .project-input-group textarea:focus {
     border-color: var(--accent-color);
 }
+
 .save-project-wrapper {
     display: flex;
     justify-content: flex-end;
     margin-top: 2rem;
 }
+
 .save-project-btn {
     padding: .9rem 1.8rem;
     border: none;
@@ -533,29 +633,35 @@ Projects Section Styling
     cursor: pointer;
     /* transition: .2s; */
 }
+
 .save-project-btn:hover {
     opacity: .9;
     /* transform: scale(1.04); */
 }
+
 .projects-list-container {
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
+
 .projects-list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.8rem;
 }
+
 .projects-list-header h2 {
-    font-size: clamp(1.4rem,2vw,1.7rem);
+    font-size: clamp(1.4rem, 2vw, 1.7rem);
     color: var(--primary-text);
     font-weight: 700;
 }
+
 .projects-sort {
     display: flex;
     align-items: center;
     gap: .8rem;
 }
+
 .projects-sort select {
     padding: .7rem 1rem;
     border: 1px solid var(--border-color);
@@ -565,11 +671,13 @@ Projects Section Styling
     cursor: pointer;
     outline: none;
 }
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
+
 .project-card {
     background: var(--card-color);
     border: 1px solid var(--border-color);
@@ -577,26 +685,31 @@ Projects Section Styling
     box-shadow: var(--shadow);
     overflow: hidden;
 }
+
 .project-card-image {
     width: 100%;
     height: 180px;
     object-fit: cover;
     display: block;
 }
+
 .project-card-content {
     padding: 1.2rem;
 }
+
 .project-card-content h3 {
     font-size: 1.2rem;
     color: var(--primary-text);
     margin-bottom: 1rem;
 }
+
 .project-tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
     margin-bottom: 1rem;
 }
+
 .project-tech-stack span {
     background: var(--light-accent-color);
     color: var(--accent-color);
@@ -605,16 +718,19 @@ Projects Section Styling
     font-size: .8rem;
     font-weight: 600;
 }
+
 .project-card-content p {
     color: var(--primary-text);
     line-height: 1.6;
     margin-bottom: 1.3rem;
 }
+
 .project-links {
     display: flex;
     gap: .8rem;
     margin-bottom: 1.5rem;
 }
+
 .project-links a {
     width: 42px;
     height: 42px;
@@ -628,18 +744,21 @@ Projects Section Styling
     transition: .3s;
     font-size: 1.4rem;
 }
+
 .project-links a:hover {
     background: var(--light-accent-color);
     color: var(--accent-color);
 }
+
 .project-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     border-top: 1px solid var(--border-color);
-   
+
 }
+
 .edit-project-btn {
     display: flex;
     align-items: center;
@@ -652,9 +771,11 @@ Projects Section Styling
     font-size: .9rem;
     transition: .2s;
 }
+
 .edit-project-btn i {
     font-size: 1.3rem;
 }
+
 .delete-project-btn {
     display: flex;
     align-items: center;
@@ -667,13 +788,16 @@ Projects Section Styling
     font-size: .9rem;
     transition: .2s;
 }
+
 .delete-project-btn i {
     font-size: 1.3rem;
 }
+
 .edit-project-btn:hover,
 .delete-project-btn:hover {
     transform: scale(1.1);
 }
+
 .projects-tips {
     display: flex;
     align-items: center;
@@ -685,6 +809,7 @@ Projects Section Styling
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
+
 .projects-tips i {
     width: 45px;
     height: 45px;
@@ -697,11 +822,13 @@ Projects Section Styling
     font-size: 1.2rem;
     flex-shrink: 0;
 }
+
 .projects-tips p {
     color: var(--primary-text);
     line-height: 1.6;
     font-size: .95rem;
 }
+
 .projects-tips strong {
     padding-right: 1rem;
 }
@@ -713,43 +840,52 @@ Skills Section Styling
 #skills-section {
     display: none;
 }
+
 .skills-header {
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
+
 .skills-header h1 {
-    font-size: clamp(2rem,2.5vw,2.5rem);
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: .45rem;
 }
+
 .skills-header p {
-    font-size: clamp(.95rem,1.1vw,1rem);
+    font-size: clamp(.95rem, 1.1vw, 1rem);
     color: var(--secondary-color);
 }
+
 .skills-form-container {
     background: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: clamp(1.5rem,2vw,2rem);
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
     box-shadow: var(--shadow)
 }
+
 .skills-form-header {
     margin-bottom: 2rem;
 }
+
 .skills-form-header h2 {
-    font-size: clamp(1.3rem,2vw,1.6rem);
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
     color: var(--primary-text);
     font-size: 600;
 }
+
 .skills-form-content {
     display: flex;
     gap: 2rem;
 }
+
 .skills-form-left,
 .skills-form-right {
     flex: 1;
 }
+
 .skills-form-container label {
     display: block;
     font-size: .95rem;
@@ -757,10 +893,12 @@ Skills Section Styling
     color: var(--primary-text);
     margin-bottom: .6rem;
 }
+
 .input-group {
     margin-bottom: 1.5rem;
 }
-.skills-form-container input[type = "text"],
+
+.skills-form-container input[type="text"],
 .skills-form-container select {
     width: 100%;
     height: 50px;
@@ -773,32 +911,38 @@ Skills Section Styling
     outline: none;
     transition: .3s;
 }
-.skills-form-container input[type = "text"]:focus,
+
+.skills-form-container input[type="text"]:focus,
 .skills-form-container select:focus {
     border-color: var(--accent-color);
 }
+
 .skill-range {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .skill-range input {
     flex: 1;
     accent-color: var(--accent-color);
     cursor: pointer;
 }
+
 .range-value {
     min-width: 50px;
     text-align: center;
     font-weight: 600;
     color: var(--accent-color);
 }
+
 .icon-input {
     display: flex;
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     overflow: hidden;
 }
+
 .icon-input input {
     flex: 1;
     border: none;
@@ -807,6 +951,7 @@ Skills Section Styling
     background: transparent;
     color: var(--primary-text);
 }
+
 .icon-input button {
     width: 50px;
     border: none;
@@ -815,6 +960,7 @@ Skills Section Styling
     cursor: pointer;
     color: var(--secondary-color);
 }
+
 .skill-icon {
     width: 50px;
     height: 50px;
@@ -826,14 +972,17 @@ Skills Section Styling
     color: var(--accent-color);
     flex-shrink: 0;
 }
+
 .skill-icon i {
     font-size: 30px;
 }
+
 .skills-button-container {
     display: flex;
     justify-content: flex-end;
     margin-top: 1rem;
 }
+
 .primary-btn {
     display: flex;
     align-items: center;
@@ -848,32 +997,38 @@ Skills Section Styling
     cursor: pointer;
     transition: .3s;
 }
+
 .primary-btn:hover {
     opacity: .9;
 }
+
 .skills-list-container {
     background: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: clamp(1.5rem,2vw,2rem);
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
     box-shadow: var(--shadow);
 }
+
 .skills-list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
 }
+
 .skills-list-title h2 {
-    font-size: clamp(1.3rem,2vw,1.6rem);
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
     font-weight: 600;
     color: var(--primary-text);
 }
+
 .skills-sort label {
     font-size: .95rem;
     color: var(--secondary-color);
 }
+
 .skills-sort select {
     width: 170px;
     height: 45px;
@@ -885,18 +1040,21 @@ Skills Section Styling
     outline: none;
     cursor: pointer;
 }
+
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
- .skill-card {
+
+.skill-card {
     border: 1px solid var(--border-color);
     padding: 1.3rem;
     border-radius: var(--radius);
     background: var(--card-color);
     transition: .3s ease;
 }
+
 .skill-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow);
@@ -908,25 +1066,30 @@ Skills Section Styling
     justify-content: space-between;
     gap: 1rem;
 }
+
 .skill-info {
     display: flex;
     align-items: center;
     gap: 16px;
 }
+
 .skill-info h3 {
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--primary-text);
 }
+
 .skill-badge {
     font-size: .85rem;
     color: var(--secondary-color);
 }
+
 .skill-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .edit-btn,
 .delete-btn {
     border: none;
@@ -936,22 +1099,27 @@ Skills Section Styling
     font-weight: 500;
     transition: .2s;
 }
+
 .edit-btn {
     color: var(--accent-color);
 }
+
 .delete-btn {
     color: #ef4444;
 }
+
 .edit-btn:hover,
 .delete-btn:hover {
     transform: scale(1.15);
-} 
+}
+
 .skill-progress {
     display: flex;
     align-items: center;
     gap: .75rem;
     margin-top: 1rem;
 }
+
 .progress-bar {
     flex: 1;
     height: 6px;
@@ -959,30 +1127,35 @@ Skills Section Styling
     border-radius: var(--radius);
     overflow: hidden;
 }
+
 .progress-fill {
     width: 90%;
     height: 100%;
     background: var(--accent-color);
     border-radius: inherit;
 }
+
 .progress-value {
     font-size: .9rem;
     font-weight: 600;
     color: var(--primary-text);
 }
+
 .skills-tips-card {
-border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
     padding: 1.3rem;
     border-radius: var(--radius);
     background: var(--card-color);
     transition: .3s ease;
 }
+
 .skills-tips-header {
     display: flex;
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
 }
+
 .skills-tips-icon {
     width: 48px;
     height: 48px;
@@ -994,17 +1167,20 @@ border: 1px solid var(--border-color);
     align-items: center;
     font-size: 1.2rem;
 }
+
 .skills-tips-header h3 {
     font-size: 1.3rem;
     font-weight: 600;
 }
+
 .skills-tips-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
 }
-.skills-tips-list li i{
+
+.skills-tips-list li i {
     color: var(--accent-color);
     font-size: 1.1rem;
 }
@@ -1014,24 +1190,28 @@ border: 1px solid var(--border-color);
 Experience Section Styling
 ==============================*/
 #experience-section {
-     display: none;
-   
+    display: none;
+
 }
+
 .experience-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
-.experience-title h1{
-    font-size: clamp(2rem,2vw,2.4rem);
+
+.experience-title h1 {
+    font-size: clamp(2rem, 2vw, 2.4rem);
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: .5rem;
 }
+
 .experience-title p {
     font-size: 1rem;
     color: var(--secondary-color);
 }
+
 .experience-form-container {
     background: var(--card-color);
     border: 1px solid var(--border-color);
@@ -1041,12 +1221,14 @@ Experience Section Styling
     flex-direction: column;
     gap: 2rem;
 }
+
 .experience-form {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     align-items: start;
 }
+
 .experience-company,
 .experience-position,
 .experience-duration,
@@ -1055,9 +1237,11 @@ Experience Section Styling
     flex-direction: column;
     gap: .6rem;
 }
+
 .experience-discription {
     grid-column: 4;
 }
+
 .experience-company label,
 .experience-position label,
 .experience-duration label,
@@ -1066,6 +1250,7 @@ Experience Section Styling
     font-weight: 600;
     color: var(--primary-text);
 }
+
 .experience-company input,
 .experience-position input,
 .experience-duration input,
@@ -1081,12 +1266,14 @@ Experience Section Styling
     transition: .3s ease;
     outline: none;
 }
+
 .experience-company input::placeholder,
 .experience-position input::placeholder,
 .experience-duration input::placeholder,
 .experience-discription textarea::placeholder {
     color: var(--secondary-color);
 }
+
 .experience-company input:focus,
 .experience-position input:focus,
 .experience-duration input:focus,
@@ -1094,14 +1281,17 @@ Experience Section Styling
     border-color: var(--accent-color);
     box-shadow: var(--shadow);
 }
+
 .experience-discription textarea {
     resize: none;
     min-height: 120px;
 }
+
 .experience-save-btn {
     display: flex;
     justify-content: flex-start;
 }
+
 #save-experience-btn {
     padding: .9rem 1.8rem;
     border: none;
@@ -1113,27 +1303,32 @@ Experience Section Styling
     cursor: pointer;
     transition: .3s ease;
 }
+
 #save-experience-btn:hover {
     opacity: .9;
 
 }
+
 .experience-list-starter {
     color: var(--primary-text);
     margin-top: 2rem;
-    margin-bottom: 1.2rem; 
-    font-size: (2rem,2vw,2.4rem);
+    margin-bottom: 1.2rem;
+    font-size: (2rem, 2vw, 2.4rem);
 }
+
 .experience-list-container {
     background: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: clamp(1.5rem,2vw,2rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
     box-shadow: var(--shadow);
 }
+
 .experience-list-container {
     display: grid;
     gap: 1.5rem;
 }
+
 .experience-card {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
@@ -1141,49 +1336,58 @@ Experience Section Styling
     background: var(--card-color);
     transition: .3s;
 }
+
 .experience-card:hover {
     border-color: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow);
 }
+
 .experience-card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 1rem;
 }
+
 .experience-details {
     display: flex;
     align-items: center;
-     gap: 6rem; 
+    gap: 6rem;
 }
-.experience-details h3{
+
+.experience-details h3 {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: .3rem;
 }
+
 .experience-details h4 {
     font-size: 1rem;
     font-weight: 600;
     color: var(--primary-text);
     margin-bottom: .3rem;
 }
+
 .experience-details span {
     font-size: .95rem;
     color: var(--secondary-color);
     margin-bottom: .3rem;
 }
+
 .experience-text {
     color: var(--secondary-color);
     line-height: 1.7;
     margin-top: 1rem;
 }
+
 .experience-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .experience-edit-btn,
 .experience-delete-btn {
     border: none;
@@ -1193,16 +1397,20 @@ Experience Section Styling
     font-weight: 500;
     transition: .2s;
 }
+
 .experience-edit-btn {
     color: var(--accent-color);
 }
+
 .experience-delete-btn {
     color: #ef4444;
 }
+
 .experience-edit-btn:hover,
 .experience-delete-btn:hover {
     transform: scale(1.15);
-} 
+}
+
 .experience-tips {
     display: flex;
     align-items: center;
@@ -1214,6 +1422,7 @@ Experience Section Styling
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
+
 .experience-tips i {
     width: 45px;
     height: 45px;
@@ -1226,11 +1435,13 @@ Experience Section Styling
     font-size: 1.2rem;
     flex-shrink: 0;
 }
+
 .experience-tips p {
     color: var(--primary-text);
     line-height: 1.6;
     font-size: .95rem;
 }
+
 .experience-tips strong {
     padding-right: 1rem;
 }
@@ -1240,24 +1451,28 @@ Experience Section Styling
 /*==============================
 Resume Section Styling
 ==============================*/
-#resume-section{
-     display: none;
+#resume-section {
+    display: none;
 }
-.resume-header{
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+
+.resume-header {
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
-.resume-title h1{
-    font-size: clamp(2rem,2.5vw,2.5rem);
+
+.resume-title h1 {
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: .5rem;
 }
-.resume-title p{
+
+.resume-title p {
     color: var(--secondary-color);
     font-size: .95rem;
     margin-bottom: .3rem;
 }
-.supported-format{
+
+.supported-format {
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -1265,11 +1480,14 @@ Resume Section Styling
     font-size: .9rem;
     color: var(--secondary-color);
 
-}.supported-format strong{
+}
+
+.supported-format strong {
     color: var(--accent-color);
     font-weight: 600;
 }
-.resume-upload-container{
+
+.resume-upload-container {
     display: flex;
     gap: 2rem;
     background: var(--card-color);
@@ -1280,7 +1498,8 @@ Resume Section Styling
     box-shadow: var(--shadow);
 
 }
-.resume-upload-area{
+
+.resume-upload-area {
     flex: 1;
     border: 2px dashed var(--border-color);
     border-radius: var(--radius);
@@ -1292,7 +1511,8 @@ Resume Section Styling
     text-align: center;
     gap: 1rem;
 }
-.upload-icon{
+
+.upload-icon {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -1301,15 +1521,18 @@ Resume Section Styling
     justify-content: center;
     align-items: center;
 }
-.resume-upload-area h3{
+
+.resume-upload-area h3 {
     font-size: 1.2rem;
     color: var(--primary-text);
 }
-.upload-divider{
+
+.upload-divider {
     color: var(--secondary-color);
     font-size: .9rem;
 }
-#choose-file-btn{
+
+#choose-file-btn {
     padding: .8rem 1.6rem;
     border: none;
     border-radius: var(--radius);
@@ -1319,10 +1542,12 @@ Resume Section Styling
     cursor: pointer;
     transition: .3s;
 }
-#choose-file-btn:hover{
+
+#choose-file-btn:hover {
     opacity: .9;
 }
-.resume-link-area{
+
+.resume-link-area {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1330,12 +1555,14 @@ Resume Section Styling
     gap: .9rem;
 
 }
-.resume-link-area label{
+
+.resume-link-area label {
     font-size: .95rem;
     font-weight: 600;
     color: var(--secondary-color);
 }
-.resume-link-input{
+
+.resume-link-input {
     display: flex;
     align-items: center;
     border: 1px solid var(--border-color);
@@ -1343,14 +1570,16 @@ Resume Section Styling
     overflow: hidden;
     background: var(--card-color);
 }
-.resume-link-input i{
+
+.resume-link-input i {
     width: 3rem;
     text-align: center;
     color: var(--secondary-text);
     border-right: 1px solid var(--border-color);
     padding: 1rem 0;
 }
-.resume-link-input input{
+
+.resume-link-input input {
     flex: 1;
     border: none;
     outline: none;
@@ -1360,10 +1589,12 @@ Resume Section Styling
     font-size: .95rem;
     font-family: inherit;
 }
-.resume-link-input:focus-within{
+
+.resume-link-input:focus-within {
     border-color: var(--accent-color);
 }
-#upload-resume-btn{
+
+#upload-resume-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1379,18 +1610,22 @@ Resume Section Styling
     transition: .3s;
     width: 210px;
 }
-#upload-resume-btn:hover{
+
+#upload-resume-btn:hover {
     opacity: .9;
 }
+
 #upload-resume-btn i {
     font-size: 1.2rem;
 }
-.resume-info-container{
+
+.resume-info-container {
     display: flex;
     gap: .4rem;
     margin-bottom: 2rem;
 }
-.current-resume-section{
+
+.current-resume-section {
     flex: 2;
     background: var(--card-color);
     border: 1px solid var(--border-color);
@@ -1399,19 +1634,22 @@ Resume Section Styling
     box-shadow: var(--shadow);
 
 }
-.current-resume-header{
+
+.current-resume-header {
     display: flex;
     gap: 1rem;
     align-items: center;
     margin-bottom: 1.5rem;
 
 }
-.current-resume-header h2{
+
+.current-resume-header h2 {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--primary-text);
 }
-.resume-status{
+
+.resume-status {
     padding: .4rem .9rem;
     border-radius: 80px;
     background: var(--light-accent-color);
@@ -1419,7 +1657,8 @@ Resume Section Styling
     font-size: .85rem;
     font-weight: 600;
 }
-.resume-card{
+
+.resume-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1429,49 +1668,57 @@ Resume Section Styling
     padding: 1.25rem;
     margin-bottom: 1.5rem;
 }
-.resume-details{
+
+.resume-details {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-.resume-details{
+
+.resume-details {
     display: flex;
     align-items: center;
 }
-.resume-icon{
+
+.resume-icon {
     width: 60px;
     height: 60px;
     border-radius: var(--radius);
-    background: rgba(239,68,68,.1);
+    background: rgba(239, 68, 68, .1);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 1rem;
 }
-.resume-icon i{
+
+.resume-icon i {
     font-size: 3rem;
     color: #ef4444;
 }
-.resume-meta{
+
+.resume-meta {
     display: flex;
     gap: .75rem;
     flex-wrap: wrap;
     color: var(--secondary-color);
     margin-top: .85rem;
 }
-.resume-meta span{
+
+.resume-meta span {
     display: flex;
     align-items: center;
     gap: .4rem;
     font-size: .85rem;
     color: var(--secondary-color);
 }
-.resume-actions{
+
+.resume-actions {
     display: flex;
     gap: .75rem;
 }
+
 .resume-preview-btn,
-.resume-delete-btn{
+.resume-delete-btn {
     padding: .3rem .5rem;
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
@@ -1481,13 +1728,16 @@ Resume Section Styling
     transition: .3s;
 
 }
-.resume-preview-btn{
+
+.resume-preview-btn {
     color: var(--accent-color);
 }
-.resume-delete-btn{
+
+.resume-delete-btn {
     color: #ef4444;
 }
-.download-resume-btn{
+
+.download-resume-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1501,10 +1751,12 @@ Resume Section Styling
     cursor: pointer;
     transition: .3s;
 }
-.download-resume-btn:hover{
+
+.download-resume-btn:hover {
     opacity: .9;
 }
-.resume-tips-section{
+
+.resume-tips-section {
     flex: 1;
     background: var(--light-accent-color);
     border: 1px solid var(--border-color);
@@ -1512,25 +1764,30 @@ Resume Section Styling
     padding: 1.5rem;
     box-shadow: var(--card-shadow);
 }
-.resume-tips-header{
+
+.resume-tips-header {
     margin-bottom: 1.5rem;
 }
-.resume-tips-header h2{
+
+.resume-tips-header h2 {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--primary-text);
 }
-.resume-tips-list{
+
+.resume-tips-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.resume-tip{
+
+.resume-tip {
     display: flex;
     align-items: flex-start;
     gap: .8rem;
 }
-.resume-tip i{
+
+.resume-tip i {
     width: 26px;
     height: 26px;
     display: flex;
@@ -1542,69 +1799,80 @@ Resume Section Styling
     font-size: 1.2rem;
     flex-shrink: 0;
 }
-.resume-tip p{
+
+.resume-tip p {
     color: var(--secondary-color);
     line-height: 1.6;
     font-size: .92rem;
 }
-.resume-tip{
+
+.resume-tip {
     transition: .3s;
 }
-.resume-footer{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:2rem;
-    padding:1.5rem 2rem;
-    background:var(--card-color);
-    border:1px solid var(--border-color);
-    border-radius:1rem;
-    box-shadow:var(--shadow);
+
+.resume-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
 }
-.resume-footer-left{
-    display:flex;
-    align-items:center;
-    gap:1rem;
+
+.resume-footer-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
-.resume-footer-icon{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+
+.resume-footer-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--light-accent-color);
 }
-.resume-footer-icon i{
-    font-size:1.4rem;
-    color:var(--accent-color);
+
+.resume-footer-icon i {
+    font-size: 1.4rem;
+    color: var(--accent-color);
 }
-.resume-footer-text h3{
-   color:var(--secondary-color);
-    font-size:.9rem;
-    line-height:1.6;
+
+.resume-footer-text h3 {
+    color: var(--secondary-color);
+    font-size: .9rem;
+    line-height: 1.6;
 }
-.resume-footer-text p{
-    color:var(--secondary-color);
-    font-size:.9rem;
-    line-height:1.6;
+
+.resume-footer-text p {
+    color: var(--secondary-color);
+    font-size: .9rem;
+    line-height: 1.6;
 }
-.resume-footer-right{
-    flex-shrink:0;
+
+.resume-footer-right {
+    flex-shrink: 0;
 }
-.preview-btn{
-    display:flex;
-    align-items:center;
+
+.preview-btn {
+    display: flex;
+    align-items: center;
     gap: .2rem;
-    padding:.9rem 1.5rem;
-    border:none;
+    padding: .9rem 1.5rem;
+    border: none;
     color: var(--accent-color);
     background: transparent;
-    font-size:.95rem;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
 }
+
 .preview-btn i {
     font-size: 1.5rem;
 }
@@ -1613,50 +1881,59 @@ Resume Section Styling
 /*==============================
 Content Section Styling
 ==============================*/
-#contact-section{
+#contact-section {
     display: none;
 }
-.contact-header{
-    margin-bottom: clamp(2rem,3vw,2.5rem);
+
+.contact-header {
+    margin-bottom: clamp(2rem, 3vw, 2.5rem);
 }
-.contact-title h1{
-    font-size: clamp(2rem,2.5vw,2.5rem);
+
+.contact-title h1 {
+    font-size: clamp(2rem, 2.5vw, 2.5rem);
     font-weight: 700;
     color: var(--primary-text);
     margin-bottom: .5rem;
 }
-.contact-title p{
+
+.contact-title p {
     font-size: .95rem;
     color: var(--secondary-color);
 }
-.contact-container{
+
+.contact-container {
     background: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    padding: clamp(1.5rem,2vw,2rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
     box-shadow: var(--shadow);
 }
-.contact-container h2{
+
+.contact-container h2 {
     font-size: 1.35rem;
     font-weight: 600;
     color: var(--primary-text);
     margin-bottom: .5rem;
 }
-.contact-container  p{
+
+.contact-container p {
     font-size: .95rem;
     color: var(--secondary-text);
     margin-bottom: 2rem;
 }
-.contact-field{
+
+.contact-field {
     margin-bottom: 1.5rem;
 }
-.contact-label{
+
+.contact-label {
     display: flex;
     align-items: center;
     gap: .75rem;
     margin-bottom: .7rem;
 }
-.contact-icon{
+
+.contact-icon {
     width: 42px;
     height: 42px;
     border-radius: .75rem;
@@ -1665,19 +1942,23 @@ Content Section Styling
     justify-content: center;
     align-items: center;
 }
-.contact-icon i{
+
+.contact-icon i {
     font-size: 1.1rem;
     color: var(--accent-color);
 }
-.contact-label label{
+
+.contact-label label {
     font-size: .95rem;
     font-weight: 600;
     color: var(--primary-text);
 }
-.contact-input{
+
+.contact-input {
     width: 100%;
 }
-.contact-input input{
+
+.contact-input input {
     width: 100%;
     height: 52px;
     padding: 0 1rem;
@@ -1690,19 +1971,23 @@ Content Section Styling
     outline: none;
     transition: .3s;
 }
-.contact-input input::placeholder{
+
+.contact-input input::placeholder {
     color: var(--secondary-color);
 }
-.contact-input input:focus{
+
+.contact-input input:focus {
     border-color: var(--accent-color);
     box-shadow: var(--shadow);
 }
-.contact-btn-container{
+
+.contact-btn-container {
     display: flex;
     justify-content: flex-end;
     margin-top: 2rem;
 }
-#save-contact-btn{
+
+#save-contact-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1718,7 +2003,7 @@ Content Section Styling
     cursor: pointer;
     transition: .3s ease;
 }
-#save-contact-btn:hover{
+
+#save-contact-btn:hover {
     opacity: .9;
 }
-

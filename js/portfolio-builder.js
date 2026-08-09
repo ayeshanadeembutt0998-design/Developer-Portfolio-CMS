@@ -54,6 +54,27 @@ showSection("about");
 
 
 
+// ============ Theme Switcher ============
+
+const themeSwitcherBtn = document.getElementById("theme-switcher-btn");
+const themeIcon = themeSwitcherBtn.querySelector(".theme-icon");
+
+themeSwitcherBtn.addEventListener("click", function () {
+    document.body.classList.toggle("dark-theme");
+    if (document.body.classList.contains("dark-theme")) {
+        // Dark theme → Moon icon
+        themeIcon.classList.remove("ri-sun-line");
+        themeIcon.classList.add("ri-moon-line");
+    } else {
+        // Light theme → Sun icon
+        themeIcon.classList.remove("ri-moon-line");
+        themeIcon.classList.add("ri-sun-line");
+    }
+});
+
+
+
+
 
 
 //============About Section Js=============
