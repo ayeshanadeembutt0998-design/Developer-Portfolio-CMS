@@ -689,3 +689,190 @@ function loadExperiences() {
 //================ Initial Load =================
 loadExperiences();
 displayExperiences();
+
+
+
+
+
+
+//==================Resume Section=====================
+
+//==================Resume Elements=====================
+const resumeFileInput = document.getElementById("resume-file");
+const chooseFileBtn = document.getElementById("choose-file-btn");
+const resumeLinkInput = document.getElementById("resume-link");
+const uploadResumeBtn = document.getElementById("upload-resume-btn");
+
+const resumeCard = document.querySelector(".resume-card");
+const currentResumeSection = document.querySelector(".current-resume-section");
+
+const resumePreviewBtn = document.querySelector(".resume-preview-btn");
+const resumeDeleteBtn = document.querySelector(".resume-delete-btn");
+
+const downloadResumeBtn = document.querySelector(".download-resume-btn");
+
+const resumeFileName = document.querySelector(".resume-info h3");
+const resumeMeta = document.querySelector(".resume-meta");
+
+//===============Resume Data======================
+let resumeData = null;
+
+
+//===============Choose Resume File===============
+chooseFileBtn.addEventListener("click",function () {
+    console.log("Choose File Clicked");
+    resumeFileInput.click();
+});
+
+resumeFileInput.addEventListener("change", function () {
+    const file = resumeFileInput.files[0];
+    if(!file) {
+        return;
+    }
+
+    //===Validation====
+    if(file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+        alert("Please select a PDF file.");
+        resumeFileInput.value = "";
+        return;
+    }
+
+    if(file.size > 5 * 1024 * 1024) {
+        alert("Resume size must be less than 5MB.");
+        resumeFileInput.value = "";
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function () {
+        resumeData = {
+            name: file.name,
+            size: file.size,
+            data: reader.result,
+            type: "file"
+        };
+         localStorage.setItem("resumeData",JSON.stringify(resumeData));
+         displayResume();
+        
+    }
+    reader.readAsDataURL(file);
+});
+
+
+//================ Resume Link =================
+
+uploadResumeBtn.addEventListener("click", function () {
+    const resumeLink = resumeLinkInput.value.trim();
+    if (!resumeLink) {
+        alert("Please enter your resume link.");
+        return;
+    }
+    const urlPattern = /^(https?:\/\/)[^\s]+$/i;
+    if (!urlPattern.test(resumeLink)) {
+        alert("Please enter a valid resume URL.");
+        return;
+    }
+
+    resumeData = {
+        name: "Resume",
+        size: 0,
+        data: resumeLink,
+        type: "link"
+    };
+
+    localStorage.setItem("resumeData", JSON.stringify(resumeData));
+    console.log("Resume link saved:", resumeData);
+});
+
+//================ Load Resume =================
+
+function loadResume() {
+
+    const savedResume = localStorage.getItem("resumeData");
+    if (!savedResume) {
+        return;
+    }
+    resumeData = JSON.parse(savedResume);
+    console.log("Loaded resume:", resumeData);
+}
+loadResume();
+displayResume();
+
+//================ Display Resume =================
+
+function displayResume() {
+    if (!resumeData) {
+        currentResumeSection.hidden = true;
+        return;
+    }
+    currentResumeSection.hidden = false;
+    resumeFileName.textContent = resumeData.name;
+    if (resumeData.type === "link") {
+    resumeMeta.innerHTML = `
+            <span>
+                <i class="ri-link"></i>
+                Resume Link
+            </span>
+        `;
+    } else {
+        const sizeInKB = Math.round(resumeData.size / 1024);
+        resumeMeta.innerHTML = `
+            <span>
+                <i class="ri-file-list-3-line"></i>
+                ${sizeInKB} KB
+            </span>
+        `;
+    }
+}
+
+//================ Resume Preview =================
+
+resumePreviewBtn.addEventListener("click", function () {
+    if (!resumeData) {
+        alert("Please upload or add a resume link first.");
+        return;
+    }
+    window.open(resumeData.data, "_blank");
+});
+
+//================ Resume Delete =================
+
+resumeDeleteBtn.addEventListener("click", function () {
+    if (!resumeData) {
+        alert("No resume to delete.");
+        return;
+    }
+    const confirmDelete = confirm("Are you sure you want to delete your resume?");
+
+    if (!confirmDelete) {
+        return;
+    }
+    localStorage.removeItem("resumeData");
+    resumeData = null;
+
+    resumeFileInput.value = "";
+    resumeLinkInput.value = "";
+    
+    displayResume();
+    alert("Resume deleted successfully.");
+});
+
+//================ Resume Download =================
+
+downloadResumeBtn.addEventListener("click", function () {
+
+    if (!resumeData) {
+        alert("Please upload a resume first.");
+        return;
+    }
+
+    const downloadLink = document.createElement("a");
+
+    downloadLink.href = resumeData.data;
+    downloadLink.download = resumeData.name;
+
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+
+    document.body.removeChild(downloadLink);
+});

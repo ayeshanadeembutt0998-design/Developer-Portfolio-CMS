@@ -1009,7 +1009,7 @@ border: 1px solid var(--border-color);
 Experience Section Styling
 ==============================*/
 #experience-section {
-     /* display: none; */
+     display: none;
    
 }
 .experience-header {
@@ -1236,7 +1236,7 @@ Experience Section Styling
 Resume Section Styling
 ==============================*/
 #resume-section{
-     display: none;
+     /* display: none; */
 }
 .resume-header{
     margin-bottom: clamp(2rem,3vw,2.5rem);
