@@ -1,3 +1,63 @@
+// ============ Sidebar Navigation ============
+
+// Sidebar navigation buttons
+const navItems = document.querySelectorAll(".sidebar-nav .nav-item[data-section]");
+
+// Function to show selected section
+function showSection(sectionName) {
+
+    // Remove active class from all sidebar buttons
+    navItems.forEach(function (navItem) {
+        navItem.classList.remove("active");
+    });
+
+    // Hide every portfolio section
+    document.getElementById("about-section").style.display = "none";
+    document.getElementById("projects-section").style.display = "none";
+    document.getElementById("skills-section").style.display = "none";
+    document.getElementById("experience-section").style.display = "none";
+    document.getElementById("resume-section").style.display = "none";
+    document.getElementById("contact-section").style.display = "none";
+
+
+    // Add active class to clicked navigation button
+    const activeNavItem = document.querySelector(`.sidebar-nav .nav-item[data-section="${sectionName}"]`);
+
+    if (activeNavItem) {
+        activeNavItem.classList.add("active");
+    }
+
+    // Show the selected section
+    const selectedSection = document.getElementById( `${sectionName}-section`);
+
+    if (selectedSection) {
+        selectedSection.style.display = "block";
+    }
+}
+
+// Navigation button click
+navItems.forEach(function (navItem) {
+
+    navItem.addEventListener("click", function () {
+
+        const sectionName = navItem.dataset.section;
+
+        showSection(sectionName);
+
+    });
+
+});
+// ============ Default Section ============
+
+// About Me is shown by default
+showSection("about");
+
+
+
+
+
+//============About Section Js=============
+
 //============About Elements===============
 
 const fullNameInput = document.getElementById("full-name");
@@ -11,12 +71,14 @@ const saveAboutBtn = document.getElementById("save-about-btn");
 const profileImage = document.querySelector(".profile-image-wrapper img");
 const profileImageInput = document.getElementById("profile-image-input");
 const changeImageBtn = document.querySelector(".change-image-btn");
+const profileImagePlaceholder = document.querySelector(".profile-image-placeholder");
 
 //=============About Event====================
 saveAboutBtn.addEventListener("click", saveAbout);
-profileImageInput.addEventListener("change", uploadProfileImage);
 changeImageBtn.addEventListener("click", openFilePicker);
+profileImageInput.addEventListener("change", uploadProfileImage);
 
+//==============Save about data================
 function saveAbout() {
     const aboutData = {
         fullName: fullNameInput.value.trim(),
@@ -48,10 +110,16 @@ function saveAbout() {
     alert("About information saved successfully!")
 }
 
+//==========Open file picker============
+function openFilePicker() {
+    profileImageInput.click();
+}
+
+//===========Upload Image================
 function uploadProfileImage() {
     const file = profileImageInput.files[0];
     if (!file) {
-        return
+        return;
     }
 
     // Image type validation
@@ -70,14 +138,14 @@ function uploadProfileImage() {
     reader.onload = function () {
         profileImage.src = reader.result;
 
+        profileImage.style.display = "block";
+        profileImagePlaceholder.style.display = "none";
         // Save image in localStorage
         localStorage.setItem("profileImage", reader.result)
     };
     reader.readAsDataURL(file);
 }
-function openFilePicker() {
-    profileImageInput.click();
-}
+
 
 
 //=================Load About==================
@@ -95,7 +163,15 @@ function loadAbout() {
 
     const savedImage = localStorage.getItem("profileImage");
     if (savedImage) {
-        profileImage.src = savedImage
+        profileImage.src = savedImage;
+        profileImage.style.display = "block";
+
+        profileImagePlaceholder.style.display = "none";
+    }
+    else {
+        profileImage.style.display = "none";
+
+        profileImagePlaceholder.style.display = "flex";
     }
 }
 loadAbout();
@@ -104,7 +180,7 @@ loadAbout();
 
 
 
-
+//============Projects Section Js============
 
 //============Projects Elements===============
 
@@ -142,14 +218,18 @@ function saveProject() {
 
     const projectData = {
         title: projectTitleInput.value.trim(),
-        technologies: technologiesInput.value.trim(),
+        technologies: technologiesInput.value.split(",").map(function (technology) {
+            return technology.trim();
+        }).filter(function (technology) {
+            return technology !== "";
+        }),
         github: githubLinkInput.value.trim(),
         liveDemo: liveDemoInput.value.trim(),
         discription: projectDiscriptionInput.value.trim(),
         image: projectImageData
     };
 
-    if (!projectData.title || !projectData.technologies || !projectData.github || !projectData.discription) {
+    if (!projectData.title || projectData.technologies.length === 0 || !projectData.github || !projectData.discription) {
         alert("Please fill in all required fields.");
         return;
     }
@@ -183,7 +263,7 @@ function saveProject() {
     resetProjectForm();
 }
 
-
+//========Reset the form after saving project=========
 function resetProjectForm() {
     projectTitleInput.value = "";
     technologiesInput.value = "";
@@ -250,64 +330,89 @@ loadProjects();
 displayProjects();
 
 //===========Display Projects===========
+
 function displayProjects() {
 
     projectsGrid.innerHTML = "";
 
     projects.forEach(function (project, index) {
 
+        const technologies = Array.isArray(project.technologies)
+            ? project.technologies
+            : project.technologies.split(",");
+
+        const technologiesHTML = technologies
+            .map(function (technology) {
+                return `<span>${technology.trim()}</span>`;
+            })
+            .join("");
+
         const projectCard = document.createElement("div");
 
         projectCard.className = "project-card";
         projectCard.dataset.index = index;
 
-        projectCard.innerHTML = `<img src = "${project.image}" alt = "${project.title}" class = "project-card-image" >
-        <div class = "project-card-content" >
-            <h3>${project.title}</h3>
-            <div class = "project-tech-stack" >
-                <span>${project.technologies}</span>
+        projectCard.innerHTML = `
+            <img src="${project.image}" 
+                 alt="${project.title}" 
+                 class="project-card-image">
+
+            <div class="project-card-content">
+
+                <h3>${project.title}</h3>
+
+                <div class="project-tech-stack">
+                    ${technologiesHTML}
+                </div>
+
+                <p>${project.discription}</p>
+
+                <div class="project-links">
+                    <a href="${project.github}" target="_blank">
+                        <i class="ri-github-fill"></i>
+                    </a>
+
+                    ${project.liveDemo ? `
+                        <a href="${project.liveDemo}" target="_blank">
+                            <i class="ri-global-line"></i>
+                        </a>
+                    ` : ""}
+                </div>
+
+                <div class="project-actions">
+                    <button class="edit-project-btn">
+                        <i class="ri-pencil-line"></i>
+                        Edit
+                    </button>
+
+                    <button class="delete-project-btn">
+                        <i class="ri-delete-bin-6-line"></i>
+                        Delete
+                    </button>
+                </div>
+
             </div>
-            <p>${project.discription}</p>
-            <div class = "project-links">
-                <a href = "${project.github}" target = "_blank">
-                    <i class = "ri-github-fill"></i>
-                </a>
-                
-                ${project.liveDemo ? `<a href = "${project.liveDemo}" target = "_blank">
-                                            <i class = "ri-global-line"></i>
-                                            </a>` : ""}
-                                            
-                </div>
-                <div class = "project-actions">
-                    <button class = "edit-project-btn">
-                        <i class = "ri-pencil-line"></i>
-                            Edit
-                    </button>
-                    <button class = "delete-project-btn">
-                        <i class = "ri-delete-bin-6-line"></i>
-                            Delete
-                    </button>
-                </div>
-            </div>`;
+        `;
 
         const editBtn = projectCard.querySelector(".edit-project-btn");
+
         editBtn.addEventListener("click", function () {
             editProject(index);
-        })
-
+        });
 
         const deleteBtn = projectCard.querySelector(".delete-project-btn");
 
         deleteBtn.addEventListener("click", function () {
             const index = projectCard.dataset.index;
+
             projects.splice(index, 1);
+
             localStorage.setItem("projects", JSON.stringify(projects));
+
             displayProjects();
         });
+
         projectsGrid.appendChild(projectCard);
-
-
-
     });
 }
 
@@ -720,7 +825,6 @@ let resumeData = null;
 
 //===============Choose Resume File===============
 chooseFileBtn.addEventListener("click", function () {
-    console.log("Choose File Clicked");
     resumeFileInput.click();
 });
 
@@ -780,7 +884,6 @@ uploadResumeBtn.addEventListener("click", function () {
     };
 
     localStorage.setItem("resumeData", JSON.stringify(resumeData));
-    console.log("Resume link saved:", resumeData);
 });
 
 //================ Load Resume =================
@@ -792,7 +895,6 @@ function loadResume() {
         return;
     }
     resumeData = JSON.parse(savedResume);
-    console.log("Loaded resume:", resumeData);
 }
 loadResume();
 displayResume();
@@ -866,7 +968,6 @@ downloadResumeBtn.addEventListener("click", function () {
     }
 
     const downloadLink = document.createElement("a");
-
     downloadLink.href = resumeData.data;
     downloadLink.download = resumeData.name;
 

@@ -39,32 +39,32 @@
 
                 <h4>Portfolio builder</h4>
 
-                <button class="nav-item active">
+                <button class="nav-item active" data-section = "about">
                     <i class="ri-home-4-line"></i>
                     About Me
                 </button>
 
-                <button class="nav-item">
+                <button class="nav-item" data-section = "projects">
                     <i class="ri-folder-2-line"></i>
                     Projects
                 </button>
 
-                <button class="nav-item">
+                <button class="nav-item" data-section = "skills">
                     <i class="ri-star-line"></i>
                     Skills
                 </button>
 
-                <button class="nav-item">
+                <button class="nav-item" data-section = "experience">
                     <i class="ri-briefcase-line"></i>
                     Experience
                 </button>
 
-                <button class="nav-item">
+                <button class="nav-item" data-section = "resume">
                     <i class="ri-file-text-line"></i>
                     Resume
                 </button>
 
-                <button class="nav-item">
+                <button class="nav-item" data-section = "contact">
                     <i class="ri-phone-line"></i>
                     Contact Me
                 </button>
@@ -128,17 +128,17 @@
 
                             <h3>Profile Image</h3>
                             <div class="profile-image-wrapper">
-                                <img src=""
-                                    alt="Profile">
-                                <button class="edit-image-btn">
-                                    <i class="ri-edit-2-line"></i>
-                                </button>
+                                <img src=""   alt="Profile" class = "profile-image">
+                                <div class="profile-image-placeholder">
+                                    <i class = "ri-user-line"></i>
+                                    <span>No image selected.</span>
+                                </div>
                             </div>
                             <button class="change-image-btn">
                                 <i class="ri-arrow-up-line"></i>
                                 Change Image
                             </button>
-                            <input type = "file" id = "profile-image-input" accept="image/*" hidden>
+                            <input type = "file" id = "profile-image-input" accept="image/*" multiple hidden>
                             <p class="image-note">
                                 JPG, PNG (max. 2MB)
                             </p>
