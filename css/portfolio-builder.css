@@ -1236,7 +1236,7 @@ Experience Section Styling
 Resume Section Styling
 ==============================*/
 #resume-section{
-     /* display: none; */
+     display: none;
 }
 .resume-header{
     margin-bottom: clamp(2rem,3vw,2.5rem);
@@ -1609,7 +1609,7 @@ Resume Section Styling
 Content Section Styling
 ==============================*/
 #contact-section{
-    display: none;
+    /* display: none; */
 }
 .contact-header{
     margin-bottom: clamp(2rem,3vw,2.5rem);

@@ -33,13 +33,13 @@ function saveAbout() {
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailPattern.test(aboutData.email)){
+    if (!emailPattern.test(aboutData.email)) {
         alert("Please enter a valid email");
         return;
     }
 
     const urlPattern = /^(https?:\/\/)?(www\.)?[\w.-]+\.[a-z]{2,}(\/.*)?$/i;
-    if(!urlPattern.test(aboutData.github)||!urlPattern.test(aboutData.linkedin)) {
+    if (!urlPattern.test(aboutData.github) || !urlPattern.test(aboutData.linkedin)) {
         alert("Please enter valid URLs ");
         return;
     }
@@ -55,13 +55,13 @@ function uploadProfileImage() {
     }
 
     // Image type validation
-    if(!file.type.startsWith("image/")){
+    if (!file.type.startsWith("image/")) {
         alert("Please select an image file");
         return;
     }
 
     // Image Size validation
-    if(file.size > 2*1024*1024) {
+    if (file.size > 2 * 1024 * 1024) {
         alert("Image size must be less than 2MB");
         return;
     }
@@ -131,45 +131,45 @@ let projectImageData = "";
 let editingProjectIndex = null;
 
 //==================Events======================
-saveProjectBtn.addEventListener("click",saveProject);
-projectImageInput.addEventListener("change",uploadProjectImage);
+saveProjectBtn.addEventListener("click", saveProject);
+projectImageInput.addEventListener("change", uploadProjectImage);
 
-projectUploadArea.addEventListener("click",openProjectFilePicker);
+projectUploadArea.addEventListener("click", openProjectFilePicker);
 
 
 //==================Save Project=================
-function saveProject () {
+function saveProject() {
 
     const projectData = {
-        title : projectTitleInput.value.trim(),
-        technologies : technologiesInput.value.trim(),
-        github : githubLinkInput.value.trim(),
-        liveDemo : liveDemoInput.value.trim(),
-        discription : projectDiscriptionInput.value.trim(),
-        image : projectImageData
+        title: projectTitleInput.value.trim(),
+        technologies: technologiesInput.value.trim(),
+        github: githubLinkInput.value.trim(),
+        liveDemo: liveDemoInput.value.trim(),
+        discription: projectDiscriptionInput.value.trim(),
+        image: projectImageData
     };
 
-    if(!projectData.title || !projectData.technologies || !projectData.github || !projectData.discription) {
+    if (!projectData.title || !projectData.technologies || !projectData.github || !projectData.discription) {
         alert("Please fill in all required fields.");
         return;
     }
 
-     const urlPattern = /^(https?:\/\/)?(www\.)?[\w.-]+\.[a-z]{2,}(\/.*)?$/i;
-    if(!urlPattern.test(projectData.github)) {
+    const urlPattern = /^(https?:\/\/)?(www\.)?[\w.-]+\.[a-z]{2,}(\/.*)?$/i;
+    if (!urlPattern.test(projectData.github)) {
         alert("Please enter a valid GitHub URL. ");
         return;
     }
-    if(projectData.liveDemo && !urlPattern.test(projectData.liveDemo)) {
+    if (projectData.liveDemo && !urlPattern.test(projectData.liveDemo)) {
         alert("Please enter a valid liveDemo URL.");
         return;
     }
 
-    if(!projectImageData) {
+    if (!projectImageData) {
         alert("Please select a project image.");
         return;
     }
 
-    if(editingProjectIndex !== null) {
+    if (editingProjectIndex !== null) {
         projects[editingProjectIndex] = projectData;
         editingProjectIndex = null;
     }
@@ -177,8 +177,8 @@ function saveProject () {
         projects.push(projectData);
     }
 
-    
-    localStorage.setItem("projects",JSON.stringify(projects));
+
+    localStorage.setItem("projects", JSON.stringify(projects));
     displayProjects();
     resetProjectForm();
 }
@@ -206,19 +206,19 @@ function resetProjectForm() {
 
 
 //================Open Project file picker==========
-function openProjectFilePicker () {
+function openProjectFilePicker() {
     projectImageInput.click();
 }
 
 //==================Upload Project Image=============
-function uploadProjectImage () {
+function uploadProjectImage() {
 
     const file = projectImageInput.files[0];
 
-    if(!file) {
+    if (!file) {
         return;
     }
-    if(!file.type.startsWith("image/")) {
+    if (!file.type.startsWith("image/")) {
         alert("Please select an image file.");
         return;
     }
@@ -239,9 +239,9 @@ function uploadProjectImage () {
 }
 
 //============Load Projects===========
-function loadProjects () {
+function loadProjects() {
     const savedProjects = localStorage.getItem("projects");
-    if(!savedProjects) {
+    if (!savedProjects) {
         return;
     }
     projects = JSON.parse(savedProjects);
@@ -250,11 +250,11 @@ loadProjects();
 displayProjects();
 
 //===========Display Projects===========
-function displayProjects () {
+function displayProjects() {
 
     projectsGrid.innerHTML = "";
 
-    projects.forEach(function (project,index) {
+    projects.forEach(function (project, index) {
 
         const projectCard = document.createElement("div");
 
@@ -290,24 +290,24 @@ function displayProjects () {
                 </div>
             </div>`;
 
-            const editBtn = projectCard.querySelector(".edit-project-btn");
-            editBtn.addEventListener("click",function(){
-                editProject(index);
-            })
+        const editBtn = projectCard.querySelector(".edit-project-btn");
+        editBtn.addEventListener("click", function () {
+            editProject(index);
+        })
 
 
-            const deleteBtn = projectCard.querySelector(".delete-project-btn");
+        const deleteBtn = projectCard.querySelector(".delete-project-btn");
 
-            deleteBtn.addEventListener("click",function(){
-                const index = projectCard.dataset.index;
-                projects.splice(index,1);
-                localStorage.setItem("projects",JSON.stringify(projects));
-                displayProjects();
-            });
-            projectsGrid.appendChild(projectCard);
+        deleteBtn.addEventListener("click", function () {
+            const index = projectCard.dataset.index;
+            projects.splice(index, 1);
+            localStorage.setItem("projects", JSON.stringify(projects));
+            displayProjects();
+        });
+        projectsGrid.appendChild(projectCard);
 
 
-            
+
     });
 }
 
@@ -356,33 +356,33 @@ let editingSkillIndex = null;
 
 
 //======================Skill Events=====================
-skillLevelInput.addEventListener("input",function(){
+skillLevelInput.addEventListener("input", function () {
     skillLevelValue.textContent = `${skillLevelInput.value}%`;
 });
 
-addSkillBtn.addEventListener("click",saveSkill);
+addSkillBtn.addEventListener("click", saveSkill);
 
 
 //====Save Skill======
 function saveSkill() {
     const skillData = {
-        name : skillNameInput.value.trim(),
-        category : skillCategoryInput.value.trim(),
-        level : Number(skillLevelInput.value),
-        icon : skillIconInput.value.trim()
+        name: skillNameInput.value.trim(),
+        category: skillCategoryInput.value.trim(),
+        level: Number(skillLevelInput.value),
+        icon: skillIconInput.value.trim()
     };
-    if(!skillData.name || !skillData.category || !skillData.category || skillData.category == "Select Category" || skillData.level < 0 || skillData.level > 100){
+    if (!skillData.name || !skillData.category || !skillData.category || skillData.category == "Select Category" || skillData.level < 0 || skillData.level > 100) {
         alert("Please fill in all required fields correctly.");
         return;
     }
-    if(editingSkillIndex !== null) {
+    if (editingSkillIndex !== null) {
         skills[editingSkillIndex] = skillData;
         editingSkillIndex = null;
     }
     else {
         skills.push(skillData);
     }
-    localStorage.setItem("skills",JSON.stringify(skills));
+    localStorage.setItem("skills", JSON.stringify(skills));
     displaySkills();
     resetSkillForm();
 }
@@ -403,11 +403,11 @@ function resetSkillForm() {
 
 
 //======Display Skill======
-function displaySkills () {
+function displaySkills() {
 
     skillsGrid.innerHTML = "";
 
-    skills.forEach(function(skill,index) {
+    skills.forEach(function (skill, index) {
         const skillCard = document.createElement("div");
 
         skillCard.className = "skill-card";
@@ -454,15 +454,15 @@ function displaySkills () {
         `;
 
         const editBtn = skillCard.querySelector(".edit-btn");
-        editBtn.addEventListener("click",function() {
+        editBtn.addEventListener("click", function () {
             editSkill(index);
         });
 
         const deleteBtn = skillCard.querySelector(".delete-btn");
-        deleteBtn.addEventListener("click",function () {
+        deleteBtn.addEventListener("click", function () {
             const index = skillCard.dataset.index;
-            skills.splice(index,1);
-            localStorage.setItem("skills",JSON.stringify(skills));
+            skills.splice(index, 1);
+            localStorage.setItem("skills", JSON.stringify(skills));
             displaySkills();
         });
 
@@ -471,9 +471,9 @@ function displaySkills () {
 }
 
 //===========Load Skills=============
-function loadSkills () {
+function loadSkills() {
     const savedSkills = localStorage.getItem("skills");
-    if(!savedSkills) {
+    if (!savedSkills) {
         return;
     }
     skills = JSON.parse(savedSkills);
@@ -544,7 +544,7 @@ function saveExperience() {
         alert("Please fill in all required fields.");
         return;
     }
- //================ Add / Edit =================
+    //================ Add / Edit =================
     if (editingExperienceIndex !== null) {
         experiences[editingExperienceIndex] = experienceData;
         editingExperienceIndex = null;
@@ -719,25 +719,25 @@ let resumeData = null;
 
 
 //===============Choose Resume File===============
-chooseFileBtn.addEventListener("click",function () {
+chooseFileBtn.addEventListener("click", function () {
     console.log("Choose File Clicked");
     resumeFileInput.click();
 });
 
 resumeFileInput.addEventListener("change", function () {
     const file = resumeFileInput.files[0];
-    if(!file) {
+    if (!file) {
         return;
     }
 
     //===Validation====
-    if(file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
         alert("Please select a PDF file.");
         resumeFileInput.value = "";
         return;
     }
 
-    if(file.size > 5 * 1024 * 1024) {
+    if (file.size > 5 * 1024 * 1024) {
         alert("Resume size must be less than 5MB.");
         resumeFileInput.value = "";
         return;
@@ -750,9 +750,9 @@ resumeFileInput.addEventListener("change", function () {
             data: reader.result,
             type: "file"
         };
-         localStorage.setItem("resumeData",JSON.stringify(resumeData));
-         displayResume();
-        
+        localStorage.setItem("resumeData", JSON.stringify(resumeData));
+        displayResume();
+
     }
     reader.readAsDataURL(file);
 });
@@ -807,7 +807,7 @@ function displayResume() {
     currentResumeSection.hidden = false;
     resumeFileName.textContent = resumeData.name;
     if (resumeData.type === "link") {
-    resumeMeta.innerHTML = `
+        resumeMeta.innerHTML = `
             <span>
                 <i class="ri-link"></i>
                 Resume Link
@@ -851,7 +851,7 @@ resumeDeleteBtn.addEventListener("click", function () {
 
     resumeFileInput.value = "";
     resumeLinkInput.value = "";
-    
+
     displayResume();
     alert("Resume deleted successfully.");
 });
@@ -876,3 +876,122 @@ downloadResumeBtn.addEventListener("click", function () {
 
     document.body.removeChild(downloadLink);
 });
+
+
+
+
+
+
+//================== Contact Section =====================
+
+//================== Contact Elements ====================
+
+const contactEmailInput = document.getElementById("contact-email");
+const contactPhoneInput = document.getElementById("contact-phone");
+const contactLocationInput = document.getElementById("contact-location");
+const contactLinkedinInput = document.getElementById("contact-linkedin");
+const contactGithubInput = document.getElementById("contact-github");
+
+const saveContactBtn = document.getElementById("save-contact-btn");
+
+
+//================== Contact Data ========================
+
+let contactData = {
+    email: "",
+    phone: "",
+    location: "",
+    linkedin: "",
+    github: ""
+};
+
+
+//================== Contact Events ======================
+
+saveContactBtn.addEventListener("click", saveContact);
+
+//================== Save Contact =========================
+
+function saveContact() {
+
+    const contact = {
+        email: contactEmailInput.value.trim(),
+        phone: contactPhoneInput.value.trim(),
+        location: contactLocationInput.value.trim(),
+        linkedin: contactLinkedinInput.value.trim(),
+        github: contactGithubInput.value.trim()
+    };
+    //================ Validation =================
+
+    if (
+        !contact.email ||
+        !contact.phone ||
+        !contact.location ||
+        !contact.linkedin ||
+        !contact.github
+    ) {
+        alert("Please fill in all contact fields.");
+        return;
+    }
+
+    //================ Phone Validation ============
+    const phonePattern = /^\d{11}$/;
+
+    if (!phonePattern.test(contact.phone)) {
+        alert("Phone number must contain exactly 11 digits.");
+        return;
+    }
+    //================ Email Validation ============
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(contact.email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    //================ URL Validation ==============
+
+    const urlPattern = /^(https?:\/\/)?(www\.)?[\w.-]+\.[a-z]{2,}(\/.*)?$/i;
+    if (!urlPattern.test(contact.linkedin)) {
+        alert("Please enter a valid LinkedIn URL.");
+        return;
+    }
+    if (!urlPattern.test(contact.github)) {
+        alert("Please enter a valid GitHub URL.");
+        return;
+    }
+
+    //================ Save Data ===================
+
+    contactData = contact;
+    localStorage.setItem(
+        "contactData",
+        JSON.stringify(contactData)
+    );
+
+    alert("Contact information saved successfully.");
+}
+
+//================== Load Contact ========================
+
+function loadContact() {
+    const savedContact = localStorage.getItem("contactData");
+    if (!savedContact) {
+        return;
+    }
+    contactData = JSON.parse(savedContact);
+    displayContact();
+}
+
+
+//================== Display Contact ====================
+
+function displayContact() {
+    contactEmailInput.value = contactData.email;
+    contactPhoneInput.value = contactData.phone;
+    contactLocationInput.value = contactData.location;
+    contactLinkedinInput.value = contactData.linkedin;
+    contactGithubInput.value = contactData.github;
+}
+
+//================== Initialize Contact ==================
+loadContact();
