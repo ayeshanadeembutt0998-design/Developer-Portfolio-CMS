@@ -24,6 +24,9 @@
 
     <div class="dashboard">
 
+        <button class = "hamburger-btn" id = "hamburger-btn">
+                    <i class="ri-menu-line"></i>
+        </button>
         <!-----------------------------------------Side bar---------------------------------------------->
         <aside class="sidebar">
 
@@ -39,39 +42,39 @@
 
                 <h4>Portfolio builder</h4>
 
-                <button class="nav-item active" data-section = "about">
+                <button class="nav-item active" data-section="about">
                     <i class="ri-home-4-line"></i>
                     About Me
                 </button>
 
-                <button class="nav-item" data-section = "projects">
+                <button class="nav-item" data-section="projects">
                     <i class="ri-folder-2-line"></i>
                     Projects
                 </button>
 
-                <button class="nav-item" data-section = "skills">
+                <button class="nav-item" data-section="skills">
                     <i class="ri-star-line"></i>
                     Skills
                 </button>
 
-                <button class="nav-item" data-section = "experience">
+                <button class="nav-item" data-section="experience">
                     <i class="ri-briefcase-line"></i>
                     Experience
                 </button>
 
-                <button class="nav-item" data-section = "resume">
+                <button class="nav-item" data-section="resume">
                     <i class="ri-file-text-line"></i>
                     Resume
                 </button>
 
-                <button class="nav-item" data-section = "contact">
+                <button class="nav-item" data-section="contact">
                     <i class="ri-phone-line"></i>
                     Contact Me
                 </button>
             </nav>
 
             <div class="preview-section">
-                <button class="nav-item">
+                <button class="nav-item" id="preview-portfolio-btn">
                     <i class="ri-eye-line"></i>
                     Preview Portfolio
                 </button>
@@ -79,7 +82,7 @@
 
             <div class="appearance-section">
                 <h4>Appearance</h4>
-                <button class="nav-item" id = "theme-switcher-btn">
+                <button class="nav-item" id="theme-switcher-btn">
                     <i class="ri-sun-line theme-icon"></i>
                     Theme Switcher
                 </button>
@@ -87,7 +90,7 @@
 
             <div class="danger-section">
                 <h4>Danger Zone</h4>
-                <button class="nav-item reset-btn" id = "reset-portfolio-btn">
+                <button class="nav-item reset-btn" id="reset-portfolio-btn">
                     <i class="ri-delete-bin-6-line"></i>
                     Reset Portfolio
                 </button>
@@ -101,9 +104,11 @@
 
         </aside>
 
+        
 
         <main class="main-content">
 
+            
             <!---------------------------------------About Us Section---------------------------------------->
             <section id="about-section">
 
@@ -113,7 +118,7 @@
                         <h1>About Me</h1>
                         <p>Manage your personal information and social profiles.</p>
                     </div>
-                    <button class="save-btn" id = "save-about-btn">
+                    <button class="save-btn" id="save-about-btn">
                         <i class="ri-save-3-line"></i>
                         Save Changes
                     </button>
@@ -128,9 +133,9 @@
 
                             <h3>Profile Image</h3>
                             <div class="profile-image-wrapper">
-                                <img src=""   alt="Profile" class = "profile-image">
+                                <img src="" alt="Profile" class="profile-image">
                                 <div class="profile-image-placeholder">
-                                    <i class = "ri-user-line"></i>
+                                    <i class="ri-user-line"></i>
                                     <span>No image selected.</span>
                                 </div>
                             </div>
@@ -138,7 +143,7 @@
                                 <i class="ri-arrow-up-line"></i>
                                 Change Image
                             </button>
-                            <input type = "file" id = "profile-image-input" accept="image/*" multiple hidden>
+                            <input type="file" id="profile-image-input" accept="image/*" multiple hidden>
                             <p class="image-note">
                                 JPG, PNG (max. 2MB)
                             </p>
@@ -243,8 +248,8 @@
 
                                 <label class="upload-label">Project Image</label>
                                 <div class="upload-area">
-                                    <img src = "" alt = "Project Preview" class = "project-upload-preview">
-                                    <div class = "upload-placeholder">
+                                    <img src="" alt="Project Preview" class="project-upload-preview">
+                                    <div class="upload-placeholder">
                                         <i class="ri-upload-cloud-2-line"></i>
                                         <h4>Upload Image</h4>
                                         <p>JPG, PNG (max. 2MB)</p>
@@ -321,14 +326,9 @@
                     <div class="projects-list-header">
 
                         <h2>Your Projects</h2>
-
-                        <div class="projects-sort">
-                            <label for="sort-projects">Sort by:</label>
-                            <select id="sort-projects">
-                                <option>Latest First</option>
-                                <option>Oldest First</option>
-                            </select>
-
+                        <div class="projects-search">
+                            <i class="ri-search-line"></i>
+                            <input type="text" id="search-projects" placeholder="Search projects...">
                         </div>
 
                     </div>
@@ -447,18 +447,10 @@
                         </div>
 
 
-                        <div class="skills-sort">
-
-                            <label for="sort-skills">Sort by: </label>
-                            <select id="sort-skills">
-                                <option>Newest First</option>
-                                <option>Oldest First</option>
-                                <option>Highest Level</option>
-                                <option>Lowest Level</option>
-                            </select>
-
+                        <div class="skills-search">
+                            <i class="ri-search-line"></i>
+                            <input type="text" id="search-skills" placeholder="Search skills...">
                         </div>
-
                     </div>
 
                     <!----Skills Cards--->
@@ -549,7 +541,14 @@
                 </div>
 
                 <div class="experience-list-starter">
+
                     <h1>All Experiences :</h1>
+
+                    <div class="experience-search">
+                        <i class="ri-search-line"></i>
+                        <input type="text" id="search-experience" placeholder="Search experience...">
+                    </div>
+
                 </div>
                 <!---Experiences list---->
                 <div class="experience-list-container">
@@ -602,7 +601,7 @@
                         <button id="choose-file-btn">
                             Choose File
                         </button>
-                        <input type="file" id= "resume-file" accept =".pdf" hidden>
+                        <input type="file" id="resume-file" accept=".pdf" hidden>
 
                     </div>
 
@@ -650,7 +649,7 @@
                                     <h3></h3>
 
                                     <div class="resume-meta">
-                                
+
                                     </div>
 
                                 </div>
@@ -900,11 +899,11 @@
 
 
         </main>
-        
+
     </div>
 
     <!------JavaScript file-------->
-    <script src="../js/portfolio-builder.js" ></script>
+    <script src="../js/portfolio-builder.js"></script>
 
 </body>
 

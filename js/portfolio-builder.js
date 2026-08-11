@@ -28,14 +28,13 @@ function showSection(sectionName) {
     }
 
     // Show the selected section
-    const selectedSection = document.getElementById( `${sectionName}-section`);
+    const selectedSection = document.getElementById(`${sectionName}-section`);
 
     if (selectedSection) {
         selectedSection.style.display = "block";
     }
 }
 
-// Navigation button click
 navItems.forEach(function (navItem) {
 
     navItem.addEventListener("click", function () {
@@ -44,33 +43,86 @@ navItems.forEach(function (navItem) {
 
         showSection(sectionName);
 
+        // Close sidebar on tablet/mobile
+        closeSidebar();
+
     });
 
 });
+
+
 // ============ Default Section ============
 
 // About Me is shown by default
 showSection("about");
 
 
+// ============ Theme Switcher ============
+
+const themeSwitcherBtn =
+    document.getElementById("theme-switcher-btn");
+
+const themeIcon =
+    themeSwitcherBtn.querySelector(".theme-icon");
+
+
+// ============ Load Saved Theme ============
+
+function loadTheme() {
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-theme");
+
+        themeIcon.classList.remove("ri-sun-line");
+        themeIcon.classList.add("ri-moon-line");
+
+    } else {
+
+        document.body.classList.remove("dark-theme");
+
+        themeIcon.classList.remove("ri-moon-line");
+        themeIcon.classList.add("ri-sun-line");
+
+    }
+}
+
 
 // ============ Theme Switcher ============
 
-const themeSwitcherBtn = document.getElementById("theme-switcher-btn");
-const themeIcon = themeSwitcherBtn.querySelector(".theme-icon");
-
 themeSwitcherBtn.addEventListener("click", function () {
+
     document.body.classList.toggle("dark-theme");
-    if (document.body.classList.contains("dark-theme")) {
-        // Dark theme → Moon icon
+
+    const isDark =
+        document.body.classList.contains("dark-theme");
+
+
+    if (isDark) {
+
+        localStorage.setItem("theme", "dark");
+
         themeIcon.classList.remove("ri-sun-line");
         themeIcon.classList.add("ri-moon-line");
+
     } else {
-        // Light theme → Sun icon
+
+        localStorage.setItem("theme", "light");
+
         themeIcon.classList.remove("ri-moon-line");
         themeIcon.classList.add("ri-sun-line");
+
     }
+
 });
+
+
+// ============ Initialize Theme ============
+
+loadTheme();
 
 
 
@@ -98,6 +150,53 @@ resetPortfolioBtn.addEventListener("click", function () {
 });
 
 
+// ============ Preview Portfolio ============
+
+const previewPortfolioBtn = document.getElementById("preview-portfolio-btn");
+previewPortfolioBtn.addEventListener("click", function () {
+    window.open("portfolio-preview.html", "_blank");
+});
+
+
+
+//================ Responsive Sidebar =================
+
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const sidebar = document.querySelector(".sidebar");
+
+
+hamburgerBtn.addEventListener("click", function () {
+
+    sidebar.classList.toggle("active");
+    hamburgerBtn.classList.toggle("hidden")
+});
+
+// Close sidebar after selecting section
+const sidebarSectionItems = document.querySelectorAll(".sidebar-nav .nav-item[data-section]");
+
+sidebarSectionItems.forEach(function (item) {
+
+    item.addEventListener("click", function () {
+
+        sidebar.classList.remove("active");
+        hamburgerBtn.classList.remove("hidden");
+
+    });
+
+});
+// Close sidebar when clicking outside it
+document.addEventListener("click", function (event) {
+
+    if (
+        sidebar.classList.contains("active") &&
+        !sidebar.contains(event.target) &&
+        !hamburgerBtn.contains(event.target)
+    ) {
+        sidebar.classList.remove("active");
+        hamburgerBtn.classList.remove("hidden");
+    }
+
+});
 
 
 //============About Section Js=============
@@ -240,7 +339,7 @@ const uploadPlaceholder = document.querySelector(".upload-placeholder");
 
 const saveProjectBtn = document.querySelector(".save-project-btn");
 const projectsGrid = document.querySelector(".projects-grid");
-const sortProjects = document.getElementById("sort-projects");
+const searchProjectsInput = document.getElementById("search-projects");
 
 const projectUploadArea = document.querySelector(".upload-area");
 
@@ -255,6 +354,8 @@ saveProjectBtn.addEventListener("click", saveProject);
 projectImageInput.addEventListener("change", uploadProjectImage);
 
 projectUploadArea.addEventListener("click", openProjectFilePicker);
+
+searchProjectsInput.addEventListener("input", searchProjects);
 
 
 //==================Save Project=================
@@ -375,11 +476,20 @@ displayProjects();
 
 //===========Display Projects===========
 
-function displayProjects() {
+function displayProjects(projectsToDisplay = projects) {
 
     projectsGrid.innerHTML = "";
 
-    projects.forEach(function (project, index) {
+    if (projectsToDisplay.length === 0) {
+        projectsGrid.innerHTML = ` <div class = "no-projects-message" >
+                                        <i class = "ri-search-line"></i>
+                                        <p> No projects found .</p>
+                                        </div>`;
+        return;
+    }
+
+    projectsToDisplay.forEach(function (project) {
+        const index = projects.indexOf(project);
 
         const technologies = Array.isArray(project.technologies)
             ? project.technologies
@@ -479,6 +589,17 @@ function editProject(index) {
     projectUploadArea.style.border = "2px solid var(--accent-color)";
 }
 
+function searchProjects() {
+    const searchText = searchProjectsInput.value.trim().toLowerCase();
+
+    const filteredProjects = projects.filter(function (project) {
+        return (project.title.toLowerCase().includes(searchText) || project.technologies.some(function (technology) {
+            return technology.toLowerCase().includes(searchText);
+        }) || project.discription.toLowerCase().includes(searchText));
+    });
+    displayProjects(filteredProjects);
+}
+
 
 
 
@@ -496,7 +617,7 @@ const skillLevelValue = document.querySelector(".range-value");
 const addSkillBtn = document.querySelector(".skills-button-container .primary-btn");
 
 const skillsGrid = document.querySelector(".skills-grid");
-const sortSkills = document.getElementById("sort-skills");
+const searchSkillsInput = document.getElementById("search-skills");
 
 
 //======================Skills Data=====================
@@ -510,6 +631,8 @@ skillLevelInput.addEventListener("input", function () {
 });
 
 addSkillBtn.addEventListener("click", saveSkill);
+
+searchSkillsInput.addEventListener("input", searchSkills);
 
 
 //====Save Skill======
@@ -552,11 +675,21 @@ function resetSkillForm() {
 
 
 //======Display Skill======
-function displaySkills() {
+function displaySkills(skillsToDisplay = skills) {
 
     skillsGrid.innerHTML = "";
 
-    skills.forEach(function (skill, index) {
+    if (skillsToDisplay.length == 0) {
+        skillsGrid.innerHTML = `<div class = "no-skills-message" >
+                                    <i class = "ri-search-line" ></i>
+                                    <p>No skills found .</p>
+                                </div>`;
+        return;
+    }
+    skillsToDisplay.forEach(function (skill) {
+
+        const index = skills.indexOf(skill);
+
         const skillCard = document.createElement("div");
 
         skillCard.className = "skill-card";
@@ -644,6 +777,22 @@ function editSkill(index) {
     skillLevelValue.textContent = `${skill.level}%`;
 }
 
+function searchSkills() {
+
+    const searchText = searchSkillsInput.value.trim().toLowerCase();
+
+    const filteredSkills = skills.filter(function (skill) {
+
+        return (
+            skill.name.toLowerCase().includes(searchText) ||
+            skill.category.toLowerCase().includes(searchText)
+        );
+
+    });
+
+    displaySkills(filteredSkills);
+}
+
 
 
 
@@ -662,6 +811,8 @@ const saveExperienceBtn = document.getElementById("save-experience-btn");
 
 const experienceListContainer = document.querySelector(".experience-list-container");
 
+const searchExperienceInput = document.getElementById("search-experience");
+
 
 //================ Experience Data =================
 
@@ -673,6 +824,7 @@ let editingExperienceIndex = null;
 
 saveExperienceBtn.addEventListener("click", saveExperience);
 
+searchExperienceInput.addEventListener("input", searchExperiences)
 
 //================ Save Experience =================
 
@@ -721,11 +873,21 @@ function resetExperienceForm() {
 
 //================ Display Experiences =================
 
-function displayExperiences() {
+function displayExperiences(experiencesToDisplay = experiences) {
 
     experienceListContainer.innerHTML = "";
 
-    experiences.forEach(function (experience, index) {
+    if (experiencesToDisplay.length == 0) {
+        experienceListContainer.innerHTML = `<div class "no-experience-message" >
+                                                <i class = "ri-search-line"></i>
+                                                <p>No experience found .</p>
+                                                </div>`;
+        return;
+    }
+
+    experiencesToDisplay.forEach(function (experience) {
+
+        const index = experiences.indexOf(experience);
 
         const experienceCard = document.createElement("div");
 
@@ -839,7 +1001,27 @@ function loadExperiences() {
 loadExperiences();
 displayExperiences();
 
+function searchExperience() {
 
+}
+
+function searchExperiences() {
+
+    const searchText = searchExperienceInput.value.trim().toLowerCase();
+
+    const filteredExperiences = experiences.filter(function (experience) {
+
+        return (
+            experience.company.toLowerCase().includes(searchText) ||
+            experience.position.toLowerCase().includes(searchText) ||
+            experience.duration.toLowerCase().includes(searchText) ||
+            experience.description.toLowerCase().includes(searchText)
+        );
+
+    });
+
+    displayExperiences(filteredExperiences);
+}
 
 
 
@@ -1140,3 +1322,7 @@ function displayContact() {
 
 //================== Initialize Contact ==================
 loadContact();
+
+
+
+

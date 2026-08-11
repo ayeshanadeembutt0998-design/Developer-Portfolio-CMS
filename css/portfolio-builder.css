@@ -21,11 +21,6 @@ LIGHT THEME (DEFAULT)
     --light-accent-color: #f8f4fc;
     --border-color: #E5E7EB;
 
-    /* Spacing */
-    --space-sm: 0.75rem;
-    --space-md: 1rem;
-    --space-lg: 2rem;
-
     /* Border radius */
     --radius: .6rem;
 
@@ -158,6 +153,7 @@ Sidebar Styling
 .reset-btn {
     color: #ef4444;
 }
+
 .reset-btn:hover {
     background-color: #fdeeee;
     width: 100%;
@@ -199,6 +195,7 @@ Sidebar Styling
 .help-card i {
     margin-left: 1rem;
 }
+
 
 /*==============================
 About Section Styling
@@ -660,20 +657,63 @@ Projects Section Styling
     font-weight: 700;
 }
 
-.projects-sort {
+.projects-search {
+    width: 280px;
+    height: 44px;
     display: flex;
     align-items: center;
-    gap: .8rem;
-}
-
-.projects-sort select {
-    padding: .7rem 1rem;
+    gap: 0.7rem;
+    padding: 0 1rem;
+    background-color: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    background: var(--card-color);
-    color: var(--primary-text);
-    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projects-search i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.projects-search input {
+    width: 100%;
+    height: 100%;
+    border: none;
     outline: none;
+    background: transparent;
+    color: var(--primary-text);
+    font-size: 0.95rem;
+}
+
+.projects-search input::placeholder {
+    color: var(--secondary-color);
+}
+
+.projects-search:focus-within {
+    border-color: var(--accent-color);
+}
+
+.no-projects-message {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.no-projects-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-projects-message p {
+    margin: 0;
+    font-size: 1rem;
 }
 
 .projects-grid {
@@ -1028,21 +1068,64 @@ Skills Section Styling
     color: var(--primary-text);
 }
 
-.skills-sort label {
-    font-size: .95rem;
+.skills-search {
+    width: 280px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0 1rem;
+
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-search i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.skills-search input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--primary-text);
+    font-size: 0.95rem;
+}
+
+.skills-search input::placeholder {
     color: var(--secondary-color);
 }
 
-.skills-sort select {
-    width: 170px;
-    height: 45px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    background: var(--card-color);
-    color: var(--primary-text);
-    padding: 0 1rem;
-    outline: none;
-    cursor: pointer;
+.skills-search:focus-within {
+    border-color: var(--accent-color);
+}
+
+.no-skills-message {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.no-skills-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-skills-message p {
+    margin: 0;
+    font-size: 1rem;
 }
 
 .skills-grid {
@@ -1318,6 +1401,67 @@ Experience Section Styling
     margin-top: 2rem;
     margin-bottom: 1.2rem;
     font-size: (2rem, 2vw, 2.4rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.experience-search {
+    width: 280px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0 1rem;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-search i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+}
+
+.experience-search input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--primary-text);
+    font-size: 0.95rem;
+}
+
+.experience-search input::placeholder {
+    color: var(--secondary-color);
+}
+
+.experience-search:focus-within {
+    border-color: var(--accent-color);
+}
+
+.no-experience-message {
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.no-experience-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-experience-message p {
+    margin: 0;
+    font-size: 1rem;
 }
 
 .experience-list-container {
@@ -2011,3 +2155,600 @@ Content Section Styling
 #save-contact-btn:hover {
     opacity: .9;
 }
+
+.hamburger-btn {
+    display: none;
+}
+
+/*=======================
+Responsiveness of Sidebar
+=========================*/
+
+@media (max-width: 992px) {
+
+    .hamburger-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        width: 45px;
+        height: 45px;
+        border: 1px solid var(--accent-color);
+        border-radius: var(--radius);
+        background: var(--card-color);
+        color: var(--accent-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hamburger-btn.hidden {
+        display: none;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 18rem;
+        height: 100vh;
+        z-index: 1000;
+        transition: all .3s ease;
+        overflow-y: auto;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar-nav {
+        width: 100%;
+    }
+
+    .sidebar-nav .nav-item {
+        width: 100%;
+    }
+
+    .main-content {
+        width: 100%;
+        padding-top: 5rem;
+    }
+
+}
+
+/* =========================
+   Tablets / Small Laptops
+   1200px and below
+========================= */
+
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: 15rem;
+    }
+
+    .logo {
+        gap: .75rem;
+    }
+
+    .logo i {
+        font-size: 2.2rem;
+        color: var(--accent-color);
+        font-weight: 900;
+    }
+
+    .logo h2 {
+        font-size: 1.5rem;
+    }
+
+    .logo p {
+        font-size: 1.1rem;
+    }
+
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-form-content {
+        gap: 1.5rem;
+    }
+
+    .experience-details {
+        gap: 2rem;
+    }
+
+    .resume-card {
+        gap: 2rem;
+    }
+}
+
+/* =========================
+   Tablets
+   992px and below
+========================= */
+
+@media (max-width: 992px) {
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .about-top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-panel {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .profile-panel h3 {
+        align-self: center;
+    }
+
+    .form-panel {
+        width: 100%;
+    }
+
+    .project-form-content {
+        flex-direction: column;
+    }
+
+    .project-upload-section {
+        width: 100%;
+    }
+
+    .experience-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-discription {
+        grid-column: 1 / -1;
+    }
+
+    .experience-details {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .resume-upload-container {
+        flex-direction: column;
+    }
+
+    .resume-info-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .upload-area,
+    .current-resume-section,
+    .resume-tips-section {
+        width: 100%;
+    }
+
+}
+
+/* =========================
+   Mobile
+   768px and below
+========================= */
+
+@media (max-width: 768px) {
+
+    .main-content {
+        padding-top: 5rem;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-grid .full-width {
+        grid-column: auto;
+    }
+
+    .profile-image-wrapper {
+        width: 190px;
+        height: 190px;
+    }
+
+    .projects-list-header,
+    .skills-list-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .projects-search,
+    .skills-search,
+    .experience-search {
+        width: 100%;
+    }
+
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .project-form-content {
+        gap: 1rem;
+    }
+
+    .save-project-wrapper {
+        justify-content: stretch;
+    }
+
+    .save-project-btn {
+        width: 100%;
+    }
+
+    .skills-form-content {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .skills-button-container {
+        justify-content: stretch;
+    }
+
+    .primary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+     .experience-form {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-discription {
+        grid-column: auto;
+    }
+
+    .experience-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .3rem;
+    }
+
+    .experience-card-header {
+        gap: 1rem;
+    }
+
+    .experience-actions {
+        flex-shrink: 0;
+    }
+
+    .experience-list-starter {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .resume-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .resume-actions {
+        justify-content: flex-end;
+    }
+
+    .resume-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .resume-footer-right {
+        width: 100%;
+    }
+
+    .preview-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contact-btn-container {
+        justify-content: stretch;
+    }
+
+    #save-contact-btn {
+        width: 100%;
+    }
+}
+/* =========================
+   Small Mobile
+   576px and below
+========================= */
+
+@media (max-width: 576px) {
+
+    .main-content {
+        padding-top: 5rem;
+    }
+
+    .about-card,
+    .about-tips-card,
+    .project-form-container,
+    .skills-form-container,
+    .skills-list-container,
+    .experience-form-container,
+    .experience-list-container,
+    .resume-upload-container,
+    .current-resume-section,
+    .resume-tips-section,
+    .contact-container {
+        padding: 1rem;
+    }
+
+    .profile-image-wrapper {
+        width: 160px;
+        height: 160px;
+    }
+
+    .profile-image-placeholder i {
+        font-size: 3rem;
+    }
+
+    .form-group textarea {
+        min-height: 140px;
+    }
+
+    .upload-area {
+        max-width: 100%;
+        height: 220px;
+    }
+
+    .project-card-image {
+        height: 160px;
+    }
+
+    .project-card-content {
+        padding: 1rem;
+    }
+
+    .projects-tips,
+    .experience-tips {
+        align-items: flex-start;
+    }
+
+ 
+    .skill-card {
+        padding: 1rem;
+    }
+
+    .skill-card-header {
+        align-items: flex-start;
+    }
+
+    .skill-info {
+        gap: .75rem;
+    }
+
+    .skill-actions {
+        gap: .5rem;
+    }
+
+
+    .experience-card {
+        padding: 1rem;
+    }
+
+    .experience-card-header {
+        align-items: flex-start;
+    }
+
+ 
+    .resume-upload-area {
+        padding: 1.2rem;
+    }
+
+    .resume-details {
+        align-items: flex-start;
+    }
+
+    .resume-meta {
+        flex-direction: column;
+        gap: .4rem;
+    }
+
+    #upload-resume-btn {
+        width: 100%;
+    }
+
+ 
+    .contact-container h2 {
+        font-size: 1.2rem;
+    }
+
+    .contact-icon {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/*================================
+TABLET SIDEBAR / HAMBURGER
+================================*/
+/*
+.hamburger-btn {
+    display: none;
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    background: var(--card-color);
+    color: var(--primary-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: .3s;
+}
+
+.hamburger-btn:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+
+/*================================
+TABLET SIDEBAR
+992px AND BELOW
+================================*/
+/*
+@media (max-width: 992px) {
+
+    .dashboard {
+        position: relative;
+    }
+
+    /* =========================
+       Sidebar Drawer
+    ========================= */
+/*
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        width: 18rem;
+        max-width: 85%;
+
+        z-index: 1000;
+
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+
+        overflow-y: auto;
+    }
+
+    /* Open sidebar */
+/*
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+
+    /* =========================
+       Navigation
+    ========================= */
+/*
+    .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        justify-content: flex-start;
+
+        padding: .9rem 1rem;
+
+        font-size: 1rem;
+    }
+
+    .nav-item:hover {
+        width: 100%;
+    }
+
+
+    /* =========================
+       Keep Sidebar Sections
+    ========================= */
+/*
+    .preview-section,
+    .appearance-section,
+    .danger-section {
+        display: block;
+    }
+
+    .help-card {
+        display: block;
+    }
+
+
+    /* =========================
+       Hamburger
+    ========================= */
+/*
+    .hamburger-btn {
+        display: flex;
+
+        width: 45px;
+        height: 45px;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+
+        background: var(--card-color);
+        color: var(--primary-text);
+
+        font-size: 1.5rem;
+
+        cursor: pointer;
+
+        margin-bottom: 1.5rem;
+
+        transition: .3s;
+    }
+
+    .hamburger-btn:hover {
+        color: var(--accent-color);
+        border-color: var(--accent-color);
+    }
+
+
+    /* =========================
+       Overlay
+    ========================= */
+/*
+    .sidebar-overlay {
+        display: none;
+
+        position: fixed;
+        inset: 0;
+
+        background: rgba(0, 0, 0, .45);
+
+        z-index: 999;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+
+    /* =========================
+       Main Content
+    ========================= */
+/*
+    .main-content {
+        width: 100%;
+        min-width: 0;
+    }
+} */

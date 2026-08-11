@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio</title>
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Portfolio Preview CSS -->
+    <link rel="stylesheet" href="../css/portfolio-preview.css">
+
+</head>
+
+
+<body>
+
+    <!-------------------------------------Header (navbar)--------------------------------------->
+    <header class="portfolio-header">
+
+        <div class="portfolio-logo">
+            <i class="ri-code-s-slash-line"></i>
+            <span id="preview-logo-name">
+                Portfolio
+            </span>
+        </div>
+
+        <nav class="portfolio-nav">
+            <a href="#home-section" class="active">
+                Home
+            </a>
+            <a href="#about-section">
+                About
+            </a>
+            <a href="#projects-section">
+                Projects
+            </a>
+            <a href="#skills-section">
+                Skills
+            </a>
+            <a href="#resume-section">
+                Resume
+            </a>
+            <a href="#contact-section">
+                Contact
+            </a>
+        </nav>
+
+        <button class="preview-theme-btn" id="preview-theme-btn" aria-label="Switch theme">
+            <i class="ri-moon-line" id="preview-theme-icon"></i>
+        </button>
+
+    </header>
+
+    <!-------------------------------------Main Portfolio Area--------------------------------------->
+    <main>
+
+
+        <!-------------------------------------Hero  Section--------------------------------------->
+        <section class="preview-section hero-section" id="home-section">
+
+            <div class="hero-content">
+                <span class="hero-greeting">
+                    👋 Hi, I'm
+                </span>
+                <h1 id="preview-name">
+                    Your Name
+                </h1>
+                <h2 id="preview-title">
+                    Frontend Developer
+                </h2>
+                <p id="preview-description">
+                    I build modern, responsive and user-friendly
+                    web applications.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects-section" class="primary-btn">
+                        View Projects
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+
+                    <a href="#" class="secondary-btn" id="hero-resume-btn">
+                        Download Resume
+                        <i class="ri-download-line"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="hero-image-wrapper">
+
+                <div class="hero-image-background">
+                    <img src="" alt="Profile Image" id="preview-profile-image">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-------------------------------------Statistics Section--------------------------------------->
+        <section class="stats-section">
+
+            <div class="stat-card">
+                <i class="ri-folder-2-line"></i>
+                <div>
+                    <h3 id="project-count"> 0+</h3>
+                    <p>Projects</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="ri-briefcase-line"></i>
+                <div>
+                    <h3 id="experience-count"> 0+</h3>
+                    <p>Experience</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="ri-star-line"></i>
+                <div>
+                    <h3 id="skill-count"> 0+</h3>
+                    <p>Skills</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="ri-code-s-slash-line"></i>
+                <div>
+                    <h3 id="technology-count"> 0+</h3>
+                    <p>Technologies</p>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+        <!-------------------------------------About Me Section--------------------------------------->
+        <section class="preview-about-section" id = "about-section">
+
+            <div class="about-content">
+
+                <div class="about-icon">
+                    <i class="ri-user-line"></i>
+                </div>
+
+                <div class="about-text">
+
+                    <h2>About Me</h2>
+
+                    <p id="preview-about-description">
+                        I am a passionate developer who loves building beautiful
+                        and functional websites.
+                    </p>
+
+                    <a href="#resume-section" class="about-read-more">
+                        Read More
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="about-image">
+                <img src="../assets/images/about-image.avif" alt="About Me">
+            </div>
+
+        </section>
+
+
+        <!-------------------------------------Projects Section--------------------------------------->
+        <section class="preview-projects-section" id="projects-section">
+
+            <div class="section-heading">
+                <h2>My Projects</h2>
+
+                <a href="#projects"> View All
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+
+            <div class="projects-grid preview-projects-grid" id="preview-projects-grid">
+                <!-- Projects generated by JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-------------------------------------Skills Section--------------------------------------->
+        <section id="skills-section">
+
+            <div class="skills-header">
+
+                <div class="skills-title">
+                    <h1>Skills</h1>
+                    <p>Technologies and tools I work with.</p>
+                </div>
+
+            </div>
+
+            <div class="skills-list-container">
+
+                <div class="skills-grid" id="preview-skills-grid">
+
+                    <!-- Skill cards generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-------------------------------------Experience Section--------------------------------------->
+        <section id="experience-section">
+
+            <div class="experience-header">
+
+                <div class="experience-title">
+                    <h1>Experience</h1>
+                    <p>My professional experience and journey.</p>
+                </div>
+
+            </div>
+
+            <div class="experience-list-container" id="preview-experience-container">
+
+                <!-- Experience cards will be generated here -->
+
+            </div>
+
+        </section>
+
+
+        <!-------------------------------------Resume Section--------------------------------------->
+        <section id="resume-section">
+
+            <div class="resume-content">
+
+                <div>
+
+                    <h2>My Resume</h2>
+                    <h3> Want to know more about me?</h3>
+                    <p>Download my resume to learn more about my skills and experience.</p>
+
+                </div>
+
+                <a href="#" class="primary-btn" class="preview-resume-btn" id="preview-download-resume-btn">
+                    Download Resume
+                    <i class="ri-download-line"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section id="contact-section">
+
+            <div class="contact-container">
+
+                <!-- ================= Left Side ================= -->
+
+                <div class="contact-info">
+
+                    <div class="contact-heading">
+                        <h2>Get In Touch</h2>
+                        <span></span>
+                        <p>
+                            Have a project in mind or want to work together?
+                            <br>
+                            Feel free to contact me.
+                        </p>
+                    </div>
+
+
+                    <div class="contact-details">
+
+                        <!-- Email -->
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="ri-mail-line"></i>
+                            </div>
+
+                            <div>
+                                <h3>Email</h3>
+                                <a id="preview-contact-email" href="#">
+                                    <!-- Loaded from localStorage -->
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Phone -->
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="ri-phone-line"></i>
+                            </div>
+
+                            <div>
+                                <h3>Phone</h3>
+                                <a id="preview-contact-phone" href="#">
+                                    <!-- Loaded from localStorage -->
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Location -->
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+
+                            <div>
+                                <h3>Location</h3>
+                                <span id="preview-contact-location">
+                                    <!-- Loaded from localStorage -->
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Availability -->
+                        <div class="contact-detail">
+
+                            <div class="contact-detail-icon">
+                                <i class="ri-time-line"></i>
+                            </div>
+
+                            <div>
+                                <h3>Availability</h3>
+                                <span id="preview-contact-availability">
+                                    <!-- Loaded from localStorage -->
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= Right Side ================= -->
+
+                <div class="contact-form">
+
+                    <div class="contact-input-row">
+
+                        <div class="contact-input-group">
+                            <label for="preview-contact-name">
+                                Your Name
+                            </label>
+
+                            <input type="text" id="preview-contact-name" placeholder="Enter your name">
+                        </div>
+
+
+                        <div class="contact-input-group">
+                            <label for="preview-contact-email-input">
+                                Your Email
+                            </label>
+
+                            <input type="email" id="preview-contact-email-input" placeholder="Enter your email">
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-input-group">
+
+                        <label for="preview-contact-message">
+                            Message
+                        </label>
+
+                        <textarea id="preview-contact-message" rows="6" placeholder="Write your message..."></textarea>
+
+                    </div>
+
+
+                    <button type="button" id="preview-send-message-btn" class="contact-submit-btn">
+                        Send Message
+                        <i class="ri-send-plane-line"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!--================================
+        FOOTER
+    =================================-->
+
+    <footer class="portfolio-footer">
+
+        <p>
+            © <span id="preview-year"></span>
+            <span id="footer-name">Portfolio</span>.
+            All rights reserved.
+        </p>
+
+
+        <div class="footer-socials">
+
+            <a href="#" id="preview-github" target="_blank" aria-label="GitHub">
+                <i class="ri-github-fill"></i>
+            </a>
+
+
+            <a href="#" id="preview-linkedin" target="_blank" aria-label="LinkedIn">
+                <i class="ri-linkedin-box-fill"></i>
+            </a>
+
+
+            <a href="#" id="preview-twitter" target="_blank" aria-label="Twitter">
+                <i class="ri-twitter-x-line"></i>
+            </a>
+
+
+            <a href="#" id="preview-instagram" target="_blank" aria-label="Instagram">
+                <i class="ri-instagram-line"></i>
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Portfolio Preview JavaScript -->
+    <script src="../js/portfolio-preview.js"></script>
+
+</body>
+
+</html>
