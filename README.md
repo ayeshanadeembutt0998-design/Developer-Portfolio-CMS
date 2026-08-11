@@ -355,22 +355,4 @@ This project was created to practice and apply important JavaScript concepts, in
 
 ---
 
-## 📂 Project Structure
 
-```text
-Developer-Portfolio-CMS/
-│
-├── assets/
-│
-├── Portfolio-Builder/
-│   ├── portfolio-builder.html
-│   ├── portfolio-builder.css
-│   └── portfolio-builder.js
-│
-├── Portfolio-Preview/
-│   ├── portfolio-preview.html
-│   ├── portfolio-preview.css
-│   └── portfolio-preview.js
-│
-├── README.md
-└── ...
